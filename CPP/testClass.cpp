@@ -5,9 +5,9 @@
 namespace test
 {
 
-void UnitTest_tClass()
+void UnitTest_Class()
 {
-	std::cout << "UnitTest_tClass" << std::endl;
+	std::cout << "UnitTest_Class" << std::endl;
 
 //	tClass Class0;
 

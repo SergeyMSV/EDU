@@ -5,9 +5,9 @@
 namespace test
 {
 
-void UnitTest_tStruct()
+void UnitTest_Struct()
 {
-	std::cout << "UnitTest_tStruct" << std::endl;
+	std::cout << "UnitTest_Struct" << std::endl;
 
 	tStruct Struct{ 4, "four" };
 
