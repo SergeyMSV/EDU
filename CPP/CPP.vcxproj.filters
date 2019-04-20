@@ -28,6 +28,9 @@
     <ClCompile Include="testType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="testPointer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="testStruct.h">

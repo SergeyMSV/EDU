@@ -1,5 +1,3 @@
-#include "testClass.h"
-
 #include <iostream>
 
 #include <map>

@@ -154,6 +154,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="testClass.cpp" />
     <ClCompile Include="testLambda.cpp" />
+    <ClCompile Include="testPointer.cpp" />
     <ClCompile Include="testStruct.cpp" />
     <ClCompile Include="testType.cpp" />
   </ItemGroup>

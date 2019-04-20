@@ -1,14 +1,15 @@
 #include <iostream>
 
-#include <map>
+//#include <map>
 #include <vector>
-#include <utility>
+//#include <utility>
 
 namespace test
 {
 
-void UnitTest_Lambda();
 void UnitTest_Class();
+void UnitTest_Lambda();
+void UnitTest_Pointer();
 void UnitTest_Struct();
 void UnitTest_Type();
 
@@ -16,8 +17,9 @@ void UnitTest_Type();
 
 int main()
 {
-	test::UnitTest_Lambda();
 	test::UnitTest_Class();
+	test::UnitTest_Lambda();
+	test::UnitTest_Pointer();
 	test::UnitTest_Struct();
 	test::UnitTest_Type();
 
@@ -30,5 +32,4 @@ int main()
 
 		std::fill(Vector.begin(), Vector.end(), nullptr);
 	}
-
 }
