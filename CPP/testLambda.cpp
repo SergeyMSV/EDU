@@ -61,6 +61,19 @@ void UnitTest_Lambda()
 	}
 
 	{
+		std::vector<int> Vector{ 1, 3, 0, 4, 0 };
+
+		auto X = [](auto& a) -> void { a += 2; };
+
+		std::for_each(Vector.begin(), Vector.end(), X);
+
+		for (auto i : Vector)
+		{
+			std::cout << i << std::endl;
+		}
+	}
+
+	{
 		int A = 0;
 		int B = 3;
 

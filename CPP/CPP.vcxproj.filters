@@ -36,6 +36,9 @@
     <ClCompile Include="testException.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="testLambda2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="testStruct.h">
