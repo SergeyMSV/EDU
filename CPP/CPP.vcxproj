@@ -154,8 +154,10 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="testClass.cpp" />
     <ClCompile Include="testLambda.cpp" />
+    <ClCompile Include="testMutex.cpp" />
     <ClCompile Include="testPointer.cpp" />
     <ClCompile Include="testStruct.cpp" />
+    <ClCompile Include="testThread.cpp" />
     <ClCompile Include="testType.cpp" />
   </ItemGroup>
   <ItemGroup>

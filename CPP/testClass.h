@@ -55,6 +55,35 @@ public:
 	{
 		S = s;
 	}
+
+protected:
+	//virtual void DoSomething1() { }
+	virtual void DoSomething2() { }
+	virtual void DoSomething3() { }
+};
+
+class tClass2 : public tClass
+{
+	std::string S2;
+
+public:
+
+protected:
+	virtual void DoSomething1() { }
+	virtual void DoSomething2() override { }//It is to be in base class by all means
+	virtual void DoSomething3() override final { }
+};
+
+class tClass3 : public tClass2
+{
+	std::string S3;
+
+public:
+
+protected:
+	virtual void DoSomething1() { }
+	virtual void DoSomething2() override { }//It is to be in base class by all means
+	//virtual void DoSomething3() { }//That's final in base class
 };
 
 }
