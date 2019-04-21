@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="testClass.cpp" />
+    <ClCompile Include="testException.cpp" />
     <ClCompile Include="testLambda.cpp" />
     <ClCompile Include="testMutex.cpp" />
     <ClCompile Include="testPointer.cpp" />

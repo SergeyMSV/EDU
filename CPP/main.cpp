@@ -6,6 +6,7 @@ namespace test
 {
 
 void UnitTest_Class();
+void UnitTest_Exception();
 void UnitTest_Lambda();
 void UnitTest_Mutex();
 void UnitTest_Pointer();
@@ -18,6 +19,7 @@ void UnitTest_Type();
 int main()
 {
 	test::UnitTest_Class();
+	test::UnitTest_Exception();
 	test::UnitTest_Lambda();
 	test::UnitTest_Mutex();
 	test::UnitTest_Pointer();
