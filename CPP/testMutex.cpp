@@ -11,7 +11,9 @@ std::mutex gMtx;
 
 void ThreadFunc_lock(int n, char c)
 {
-	gMtx.lock();
+	//using a local lock_guard to lock mtx guarantees unlocking on destruction / exception:
+	std::lock_guard<std::mutex> LocalGuard(gMtx);
+	//gMtx.lock();
 
 	for (auto i = 0; i < n; ++i)
 	{
@@ -22,7 +24,7 @@ void ThreadFunc_lock(int n, char c)
 
 	std::cout << std::endl;
 
-	gMtx.unlock();
+	//gMtx.unlock();
 }
 
 void ThreadFunc_try_lock(int n, char c)

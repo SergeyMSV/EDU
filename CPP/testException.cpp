@@ -74,6 +74,42 @@ void UnitTest_Exception()
 			th.join();
 		}
 	}
+
+	{
+		for (int i = 0; i < 3; ++i)
+		{
+			try
+			{
+				switch (i)
+				{
+				case 0:
+				{
+					throw 'A';
+				}
+				case 1:
+				{
+					throw 34;
+				}
+				case 2:
+				{
+					throw "12312313";
+				}
+				}
+			}
+			catch (char ex)
+			{
+				std::cout << "Exception char =" << ex << std::endl;
+			}
+			catch (int ex)
+			{
+				std::cout << "Exception int =" << ex << std::endl;
+			}
+			catch (...)
+			{
+				std::cout << "Exception ..." << std::endl;
+			}
+		}
+	}
 }
 
 }
