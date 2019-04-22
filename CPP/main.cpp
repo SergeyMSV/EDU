@@ -6,6 +6,7 @@ namespace test
 {
 
 void UnitTest_Class();
+void UnitTest_Class2();
 void UnitTest_Exception();
 void UnitTest_Lambda();
 void UnitTest_Lambda2();
@@ -20,6 +21,7 @@ void UnitTest_Type();
 int main()
 {
 	test::UnitTest_Class();
+	test::UnitTest_Class2();
 	test::UnitTest_Exception();
 	test::UnitTest_Lambda();
 	test::UnitTest_Lambda2();
@@ -50,4 +52,6 @@ int main()
 		auto D1 = 0xABCD'1234;
 		auto E1 = 1'2'3'4'000'1;
 	}
+
+	return 0;
 }

@@ -39,12 +39,18 @@
     <ClCompile Include="testLambda2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="testClass2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="testStruct.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="testClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testClass2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

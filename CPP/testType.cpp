@@ -22,6 +22,16 @@ void UnitTest_Type()
 		std::cout << "Preved: " << i << "\n";
 	}
 
+	//{
+	//	auto RR;//Wrong
+
+	//	decltype(RR) AA;
+
+	//	decltype(int) AB;//Wrong
+
+	//	decltype(auto) AC;//Wrong
+	//}
+
 	{
 		std::string Str = "asd";
 

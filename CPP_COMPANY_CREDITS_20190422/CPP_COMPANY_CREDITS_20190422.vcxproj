@@ -127,8 +127,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Task_10.cpp" />
     <ClCompile Include="Task_1.cpp" />
+    <ClCompile Include="Task_11.cpp" />
+    <ClCompile Include="Task_12.cpp" />
+    <ClCompile Include="Task_13.cpp" />
     <ClCompile Include="Task_2.cpp" />
+    <ClCompile Include="Task_3.cpp" />
+    <ClCompile Include="Task_4.cpp" />
+    <ClCompile Include="Task_5.cpp" />
+    <ClCompile Include="Task_6.cpp" />
+    <ClCompile Include="Task_7.cpp" />
+    <ClCompile Include="Task_8.cpp" />
+    <ClCompile Include="Task_9.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
