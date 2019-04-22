@@ -48,12 +48,12 @@ void UnitTest_Exception()
 
 		std::thread* Threads = new std::thread[ThreadQty];
 
-		for (int i = 0; i < ThreadQty; ++i)
+		for (auto i = 0; i < ThreadQty; ++i)
 		{
 			Threads[i] = std::thread(ThreadFunc, i);
 		}
 
-		for (int i = 0; i < ThreadQty; ++i)
+		for (auto i = 0; i < ThreadQty; ++i)
 		{
 			Threads[i].join();
 		}
