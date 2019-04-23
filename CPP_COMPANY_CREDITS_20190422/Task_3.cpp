@@ -13,7 +13,7 @@ public:
 	explicit A() { }
 	~A()
 	{
-//		throw 1;//Abort вылетает здесь
+//		throw 1;//Abort вылетает здесь даже на первом throw
 	}
 };
 

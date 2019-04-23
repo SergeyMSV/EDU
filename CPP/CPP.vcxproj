@@ -157,11 +157,15 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="testClass.cpp" />
     <ClCompile Include="testClass2.cpp" />
+    <ClCompile Include="testConst.cpp" />
     <ClCompile Include="testException.cpp" />
     <ClCompile Include="testLambda.cpp" />
     <ClCompile Include="testLambda2.cpp" />
     <ClCompile Include="testMutex.cpp" />
     <ClCompile Include="testPointer.cpp" />
+    <ClCompile Include="testStatic1.cpp" />
+    <ClCompile Include="testStatic2.cpp" />
+    <ClCompile Include="testStatic3.cpp" />
     <ClCompile Include="testStruct.cpp" />
     <ClCompile Include="testThread.cpp" />
     <ClCompile Include="testType.cpp" />
@@ -169,6 +173,8 @@
   <ItemGroup>
     <ClInclude Include="testClass.h" />
     <ClInclude Include="testClass2.h" />
+    <ClInclude Include="testConst.h" />
+    <ClInclude Include="testStatic.h" />
     <ClInclude Include="testStruct.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -13,6 +13,12 @@ auto Compose(T a, E b) -> decltype(a + b)
 	return a + b;
 }
 
+//template<typename T, typename E>
+//decltype(a + b) Compose2(T a, E b) так нельз€, a и b ещЄ не объ€влены
+//{
+//	return a + b;
+//}
+
 void UnitTest_Type()
 {
 	std::cout << "UnitTest_Type" << std::endl;
@@ -38,6 +44,23 @@ void UnitTest_Type()
 		auto AutoS = Str;
 
 		std::cout << AutoS << std::endl;
+	}
+
+	{
+		decltype(20) A;
+
+		decltype(20.0) D;
+
+		decltype("sdf") S = "qwe";//определ€ет const char[4], работает только с инициализатором
+		//decltype("sdf") S1 = "qweуу";//не работает
+		//decltype("sdf") S2 = "qw";//не работает
+
+		decltype('c') C;
+
+		A = 2;
+		D = 3;
+
+		std::cout << A << " " << D << std::endl;
 	}
 
 	{

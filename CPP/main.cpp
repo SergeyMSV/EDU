@@ -7,11 +7,15 @@ namespace test
 
 void UnitTest_Class();
 void UnitTest_Class2();
+void UnitTest_Const();
 void UnitTest_Exception();
 void UnitTest_Lambda();
 void UnitTest_Lambda2();
 void UnitTest_Mutex();
 void UnitTest_Pointer();
+void UnitTest_Static1();
+void UnitTest_Static2();
+void UnitTest_Static3();
 void UnitTest_Struct();
 void UnitTest_Thread();
 void UnitTest_Type();
@@ -22,11 +26,15 @@ int main()
 {
 	test::UnitTest_Class();
 	test::UnitTest_Class2();
+	test::UnitTest_Const();
 	test::UnitTest_Exception();
 	test::UnitTest_Lambda();
 	test::UnitTest_Lambda2();
 	test::UnitTest_Mutex();
 	test::UnitTest_Pointer();
+	test::UnitTest_Static1();
+	test::UnitTest_Static2();
+	test::UnitTest_Static3();
 	test::UnitTest_Struct();
 	test::UnitTest_Thread();
 	test::UnitTest_Type();

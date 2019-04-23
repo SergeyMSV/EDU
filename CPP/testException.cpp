@@ -8,9 +8,9 @@
 namespace test
 {
 
-std::mutex gMtx2;
+static std::mutex gMtx;//со static может быть использован только в этом файле
 
-void ThreadFunc_PrintEven(int x)
+void ThreadFunc_PrintEven(int x) //noexcept - если это есть - на throw будет ABORT
 {
 	if (x % 2 == 0)
 	{
@@ -27,13 +27,13 @@ void ThreadFunc(int x)
 	try
 	{
 		//using a local lock_guard to lock mtx guarantees unlocking on destruction / exception:
-		std::lock_guard<std::mutex> LocalGuard(gMtx2);
+		std::lock_guard<std::mutex> LocalGuard(gMtx);
 
 		ThreadFunc_PrintEven(x);
 	}
 	catch (std::logic_error & err)
 	{
-		std::lock_guard<std::mutex> LocalGuard(gMtx2);
+		std::lock_guard<std::mutex> LocalGuard(gMtx);
 
 		std::cout << "[exception caught]: " << err.what() << std::endl;
 	}

@@ -28,6 +28,9 @@ int Main()
 	int& value2 = a.value();
 	++value2;
 
+	auto value3 = a.value();//auto не становится ссылочным типом
+	++value3;
+
 	//int& closure2 = [&a]() -> int& { return a.value(); };
 	//Похоже, lambda работает только с константами, поэтому происходит копирование
 	//следовательно происходит копирование

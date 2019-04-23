@@ -7,7 +7,8 @@
 namespace test
 {
 
-std::mutex gMtx;
+static std::mutex gMtx;//со static может быть использован только в этом файле
+//std::mutex gMtx; - может быть использована во всех файлах проекта, что мешает...
 
 void ThreadFunc_lock(int n, char c)
 {
