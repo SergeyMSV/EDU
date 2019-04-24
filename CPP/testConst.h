@@ -38,7 +38,12 @@ public:
 	auto GetDay() const { int a = m_Day + 34; return m_Day; }
 	//auto GetDay() const { return ++m_Day; }//так нельзя
 
-	static const int Century = 21;
+	const int& GetMonth() const { return m_Month; } // getValue() для константных объектов
+	int& GetMonth() { return m_Month; } // getValue() для неконстантных объектов
+
+	static const int Century = 21;//принадлежит классу, как таковому
+
+	const int RR = 22;//принадлежит созданному объекту... через декларацию класса недоступно
 };
 //Как только константный объект класса инициализируется через конструктор,
 //любая попытка изменить переменные-члены объекта запрещена.

@@ -5,6 +5,13 @@
 namespace test
 {
 
+int& GetFigure()
+{
+	int A = 45;
+
+	return A;//W: returning address of local variable or temporary: A
+}
+
 void UnitTest_Const()
 {
 	std::cout << "UnitTest_Const" << std::endl;
@@ -26,9 +33,11 @@ void UnitTest_Const()
 
 	//tDate::Century++;//ER: expression must be a modifieble lvalue
 
+	//int RR = tDate::RR;//ER: a nonstatic reference must be relative to a specific object
+	int RR = gDate2.RR;
 
 	{
-		//¬ отличие от ссылок на неконстантные значени€, которые могут быть инициализированы только неконстантными l - values, ссылки на константные значени€ могут быть инициализированы неконстантными l - values, константными l - values и r - values.
+		//¬ отличие от ссылок на неконстантные значени€, которые могут быть инициализированы только неконстантными l-values, ссылки на константные значени€ могут быть инициализированы неконстантными l-values, константными l-values и r-values.
 		
 		int a = 7;
 		const int& ref1 = a; // хорошо, a - это неконстантное l-value
@@ -37,6 +46,13 @@ void UnitTest_Const()
 		const int& ref2 = b; // хорошо, b - это константное l-value
 
 		const int& ref3 = 5; // хорошо, 5 - это r-value
+
+		//int& ref4 = 6;//ER: initial reference to non-const must be an l-value
+
+		//const int c = 7;
+		//int& ref5 = c;//ER: qualifier dropped in binding reference of type "int&" to initializer of type "const int"
+
+		int& ref6 = a;
 	}
 
 	{
@@ -52,6 +68,27 @@ void UnitTest_Const()
 		ref2 = 10;//[srg]
 
 		std::cout << "Century: " << tDate::Century << std::endl;
+	}
+
+	{
+		gDate2.GetMonth();//вызван экземпл€р дл€ константных объектов
+
+		tDate Date(4, 5, 6);
+
+		//auto Month = Date.GetMonth();//вызван экземпл€р дл€ неконстантных объектов
+		//здесь будет int Month (без ссылки, т.к. auto просто копирует не гл€д€ на ссылки)
+
+		int& Month = Date.GetMonth();//вызван экземпл€р дл€ неконстантных объектов
+
+		Month++;
+
+		std::cout << "Month: " << Month << std::endl;
+	}
+
+	{
+		int& A = GetFigure();//IT IS NOT CORRECT ACTUALLY
+
+		std::cout << A << std::endl;
 	}
 }
 
