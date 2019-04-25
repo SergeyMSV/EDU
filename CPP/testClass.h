@@ -25,6 +25,9 @@ public:
 		B = b;
 	}
 
+	//Constructors taking only one argument of this type are a special kind of constructor,
+	//called initializer - list constructor.
+	//Initializer - list constructors take precedence over other constructors when the initializer - list constructor syntax is used
 	tClass(std::initializer_list<int> list)
 	{
 		if (list.size() == 2)

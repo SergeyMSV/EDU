@@ -7,14 +7,23 @@ namespace test
 
 class tClass_2
 {
-public:
-	explicit tClass_2() = default;
-};
+	int A;
 
-class tClass_2_1 : public tClass_2
-{
 public:
-	explicit tClass_2_1() = default;
+	tClass_2()
+	{
+		A = 0;
+	}
+
+	explicit tClass_2(int a)
+	{
+		A = a;
+	}
+
+	tClass_2(const tClass_2& value)
+	{
+		A = value.A;
+	}
 };
 
 }
