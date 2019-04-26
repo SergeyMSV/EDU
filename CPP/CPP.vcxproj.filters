@@ -54,6 +54,12 @@
     <ClCompile Include="testStatic3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="testRef.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="testClass3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="testStruct.h">
@@ -69,6 +75,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="testStatic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testRef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testClass3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

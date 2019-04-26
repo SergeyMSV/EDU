@@ -7,12 +7,14 @@ namespace test
 
 void UnitTest_Class();
 void UnitTest_Class2();
+void UnitTest_Class3();
 void UnitTest_Const();
 void UnitTest_Exception();
 void UnitTest_Lambda();
 void UnitTest_Lambda2();
 void UnitTest_Mutex();
 void UnitTest_Pointer();
+void UnitTest_Ref();
 void UnitTest_Static1();
 void UnitTest_Static2();
 void UnitTest_Static3();
@@ -24,15 +26,17 @@ void UnitTest_Type();
 
 int main()
 {
-	test::UnitTest_Class();
-	test::UnitTest_Class2();
-	test::UnitTest_Const();
+/*	test::UnitTest_Class();
+	test::UnitTest_Class2();*/
+	test::UnitTest_Class3();
+/*	test::UnitTest_Const();
 	test::UnitTest_Exception();
 	test::UnitTest_Lambda();
 	test::UnitTest_Lambda2();
 	test::UnitTest_Mutex();
-	test::UnitTest_Pointer();
-	test::UnitTest_Static1();
+	test::UnitTest_Pointer();*/
+	test::UnitTest_Ref();
+/*	test::UnitTest_Static1();
 	test::UnitTest_Static2();
 	test::UnitTest_Static3();
 	test::UnitTest_Struct();
@@ -59,7 +63,7 @@ int main()
 		auto C1 = 0b0000'1010'0011'1110;
 		auto D1 = 0xABCD'1234;
 		auto E1 = 1'2'3'4'000'1;
-	}
+	}*/
 
 	return 0;
 }
