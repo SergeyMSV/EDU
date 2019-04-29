@@ -169,6 +169,7 @@
     <ClCompile Include="testStatic2.cpp" />
     <ClCompile Include="testStatic3.cpp" />
     <ClCompile Include="testStruct.cpp" />
+    <ClCompile Include="testTemplate01Class.cpp" />
     <ClCompile Include="testThread.cpp" />
     <ClCompile Include="testType.cpp" />
   </ItemGroup>
@@ -180,6 +181,7 @@
     <ClInclude Include="testRef.h" />
     <ClInclude Include="testStatic.h" />
     <ClInclude Include="testStruct.h" />
+    <ClInclude Include="testTemplate01Class.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
