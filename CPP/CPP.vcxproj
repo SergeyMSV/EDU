@@ -155,9 +155,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="testClass.cpp" />
-    <ClCompile Include="testClass2.cpp" />
-    <ClCompile Include="testClass3.cpp" />
+    <ClCompile Include="testClassOverride.cpp" />
+    <ClCompile Include="testClassExplicit.cpp" />
+    <ClCompile Include="testClassMove.cpp" />
     <ClCompile Include="testConst.cpp" />
     <ClCompile Include="testException.cpp" />
     <ClCompile Include="testLambda.cpp" />
@@ -174,9 +174,9 @@
     <ClCompile Include="testType.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="testClass.h" />
-    <ClInclude Include="testClass2.h" />
-    <ClInclude Include="testClass3.h" />
+    <ClInclude Include="testClassOverride.h" />
+    <ClInclude Include="testClassExplicit.h" />
+    <ClInclude Include="testClassMove.h" />
     <ClInclude Include="testConst.h" />
     <ClInclude Include="testRef.h" />
     <ClInclude Include="testStatic.h" />

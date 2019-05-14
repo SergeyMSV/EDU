@@ -5,9 +5,9 @@
 namespace test
 {
 
-void UnitTest_Class();
-void UnitTest_Class2();
-void UnitTest_Class3();
+void UnitTest_ClassOverride();
+void UnitTest_ClassExplicit();
+void UnitTest_ClassMove();
 void UnitTest_Const();
 void UnitTest_Exception();
 void UnitTest_Lambda();
@@ -26,9 +26,9 @@ void UnitTest_Type();
 
 int main()
 {
-/*	test::UnitTest_Class();
-	test::UnitTest_Class2();*/
-	test::UnitTest_Class3();
+	test::UnitTest_ClassOverride();
+	test::UnitTest_ClassExplicit();
+	test::UnitTest_ClassMove();
 /*	test::UnitTest_Const();
 	test::UnitTest_Exception();
 	test::UnitTest_Lambda();

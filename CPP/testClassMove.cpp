@@ -1,21 +1,23 @@
-#include "testClass3.h"
+#include "testClassMove.h"
 
 #include <iostream>
 
 namespace test
 {
 
-tClass_3<int> MakeClass_3(int value)
+using namespace class_move;
+
+tClass<int> MakeClass(int value)
 {
-	return tClass_3<int>(new int(value));
+	return tClass<int>(new int(value));
 }
 
-void UnitTest_Class3()
+void UnitTest_ClassMove()
 {
-	std::cout << "UnitTest_Class3" << std::endl;
+	std::cout << "UnitTest class_move::tClass" << std::endl;
 
 	{
-		tClass_3<int> A;
+		tClass<int> A;
 
 		std::cout << "A" << std::endl;
 	}
@@ -33,7 +35,7 @@ void UnitTest_Class3()
 	{
 		int* PtrA = new int(4);
 
-		tClass_3<int> A(PtrA);
+		tClass<int> A(PtrA);
 
 		//delete PtrA;//EXCEPTION
 
@@ -41,15 +43,15 @@ void UnitTest_Class3()
 	}
 
 	{
-		tClass_3<int> A(new int(4));
+		tClass<int> A(new int(4));
 
-		tClass_3<int> B(new int(5));
+		tClass<int> B(new int(5));
 
-		tClass_3<int> C(new int(6));
+		tClass<int> C(new int(6));
 
 		C = B;//copy c_tor
 	
-		C = MakeClass_3(8);//move
+		C = MakeClass(8);//move
 		// онструктор перемещени€ и оператор присваивани€ перемещением вызываютс€, когда 
 		//аргументом дл€ создани€ или присваивани€ €вл€етс€ r - value.
 		//„аще всего этим r - value будет литерал или временное значение (временный объект).

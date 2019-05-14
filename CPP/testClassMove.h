@@ -2,38 +2,40 @@
 
 namespace test
 {
-
-template<class T>
-class tClass_3
+	namespace class_move
+	{
+		
+template <class T>
+class tClass
 {
 	T* m_Ptr;
 
 public:
-	tClass_3(T* ptr = nullptr)
+	tClass(T* ptr = nullptr)
 		:m_Ptr(ptr)
 	{
 		
 	}
 
-	tClass_3(const tClass_3& value)
+	tClass(const tClass& value)
 	{
 		m_Ptr = new T;
 
 		*m_Ptr = *value.m_Ptr;
 	}
 
-	tClass_3(tClass_3&& value)
+	tClass(tClass&& value)
 		:m_Ptr(value.m_Ptr)// Передаём право собственности на x.m_ptr в m_ptr
 	{
 		value.m_Ptr = nullptr;
 	}
 
-	~tClass_3()
+	~tClass()
 	{
 		delete m_Ptr;//Если m_Ptr = nullptr, это нормально, всё прокатит
 	}
 
-	tClass_3& operator = (const tClass_3& value)
+	tClass& operator = (const tClass& value)
 	{
 		if (&value == this)// Проверка на самоприсваивание
 		{
@@ -49,7 +51,7 @@ public:
 		return *this;
 	}
 
-	tClass_3& operator = (tClass_3&& value) noexcept
+	tClass& operator = (tClass&& value) noexcept
 	{
 		if (&value == this)// Проверка на самоприсваивание
 		{
@@ -77,4 +79,5 @@ public:
 	}
 };
 
+	}
 }

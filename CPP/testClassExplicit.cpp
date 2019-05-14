@@ -1,13 +1,15 @@
-#include "testClass2.h"
+#include "testClassExplicit.h"
 
 #include <iostream>
 
 namespace test
 {
 
-void UnitTest_Class2()
+using namespace class_explicit;
+
+void UnitTest_ClassExplicit()
 {
-	std::cout << "UnitTest_Class2" << std::endl;
+	std::cout << "UnitTest_ClassExplicit" << std::endl;
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 	//appropriate constructor is explicit
@@ -16,9 +18,9 @@ void UnitTest_Class2()
 
 	//Class1 = 4;//ER: no suitable constructor exists to convert from "int" to "Class2"
 
-	tClass_2 Class1(4);//OK
+	tClass Class1(4);//OK
 
-	Class1 = tClass_2(4);//OK
+	Class1 = tClass(4);//OK
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 }
 

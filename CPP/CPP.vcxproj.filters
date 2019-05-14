@@ -15,9 +15,6 @@
     <ClCompile Include="testStruct.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testClass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="testLambda.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -39,9 +36,6 @@
     <ClCompile Include="testLambda2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testClass2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="testConst.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -57,21 +51,21 @@
     <ClCompile Include="testRef.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testClass3.cpp">
+    <ClCompile Include="testTemplate01Class.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testTemplate01Class.cpp">
+    <ClCompile Include="testClassMove.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="testClassOverride.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="testClassExplicit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="testStruct.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="testClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="testClass2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="testConst.h">
@@ -83,10 +77,16 @@
     <ClInclude Include="testRef.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="testClass3.h">
+    <ClInclude Include="testTemplate01Class.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="testTemplate01Class.h">
+    <ClInclude Include="testClassMove.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testClassOverride.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testClassExplicit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

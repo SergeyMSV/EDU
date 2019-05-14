@@ -4,26 +4,29 @@
 
 namespace test
 {
+	namespace class_explicit
+	{
 
-class tClass_2
+class tClass
 {
 	int A;
 
 public:
-	tClass_2()
+	tClass()
 	{
 		A = 0;
 	}
 
-	explicit tClass_2(int a)
+	explicit tClass(int a)
 	{
 		A = a;
 	}
 
-	tClass_2(const tClass_2& value)
+	tClass(const tClass& value)
 	{
-		A = value.A;
+
 	}
 };
 
+	}
 }
