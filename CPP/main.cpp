@@ -29,12 +29,12 @@ int main()
 	test::UnitTest_ClassOverride();
 	test::UnitTest_ClassExplicit();
 	test::UnitTest_ClassMove();
-/*	test::UnitTest_Const();
+	test::UnitTest_Const();
 	test::UnitTest_Exception();
 	test::UnitTest_Lambda();
 	test::UnitTest_Lambda2();
 	test::UnitTest_Mutex();
-	test::UnitTest_Pointer();*/
+	test::UnitTest_Pointer();
 	test::UnitTest_Ref();
 /*	test::UnitTest_Static1();
 	test::UnitTest_Static2();
