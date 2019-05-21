@@ -1,4 +1,5 @@
 #include <array>
+#include <iostream>
 
 namespace cpp11
 {
@@ -30,7 +31,6 @@ namespace cpp14
 	}
 
 	//static_assert(Fact(7) == 5040, "Fact error...");//C++11, with C++17 it's possible to omit the message
-
 }
 
 namespace cpp17
@@ -44,8 +44,27 @@ namespace cpp17
 		return A;
 	}
 
-	//std::array<int, 3> GetArray2()
-	//{
-	//	return GetArray();
-	//}
+	int main_lection_3_constexpr()
+	{
+		constexpr std::array<int, 3> A = GetArray();
+
+		const std::array<int, 3> B = GetArray();
+
+		std::array<int, 3> C = GetArray();
+
+		std::cout << "cpp17: " << A[2] << std::endl;
+
+		if constexpr (A[1] == 2)
+		{
+			C[1] = 8;
+		}
+		else
+		{
+			C[1] = 12;
+		}
+
+		std::cout << "main_local.end" << std::endl;
+
+		return 0;
+	}
 }

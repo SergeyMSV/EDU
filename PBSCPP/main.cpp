@@ -1,15 +1,19 @@
-//#include <array>
-//
-//namespace cpp17
-//{
-//	extern constexpr std::array<int, 3> GetArray();
-//	//constexpr auto GetArray();
-//	//extern std::array<int, 3> GetArray2();
-//}
+namespace cpp17
+{
+	int main_lection_3_constexpr();
+}
+
+int main_lection_3_template_args_1();
+int main_lection_3_template_args_2();
+int main_lection_3_template_args_3_tuple();
 
 int main()
 {
-	//auto X = cpp17::GetArray();
+	cpp17::main_lection_3_constexpr();
+
+	main_lection_3_template_args_1();
+	main_lection_3_template_args_2();
+	main_lection_3_template_args_3_tuple();
 
 	return 0;
 }

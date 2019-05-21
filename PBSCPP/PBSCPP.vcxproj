@@ -124,7 +124,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Lection_3.cpp" />
+    <ClCompile Include="Lection_3_constexpr.cpp" />
+    <ClCompile Include="Lection_3_template_args_1.cpp" />
+    <ClCompile Include="Lection_3_template_args_2.cpp" />
+    <ClCompile Include="Lection_3_template_args_3_tuple.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
