@@ -23,11 +23,11 @@ void myprintf(const char* str, T value, Targs... Fargs)
 	}
 }
 
-int main_lection_3_template_args_1()
+int main_lection_3_2_template_args()
 {
 	myprintf("% + % = %\n", 1, 2, 3);
 
-	std::cout << "main_lection_3_template_args_1.end" << std::endl;
+	std::cout << "main_lection_3_2_template_args.end" << std::endl;
 
 	return 0;
 }

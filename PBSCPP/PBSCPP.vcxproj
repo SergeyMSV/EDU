@@ -124,10 +124,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Lection_3_constexpr.cpp" />
-    <ClCompile Include="Lection_3_template_args_1.cpp" />
-    <ClCompile Include="Lection_3_template_args_2.cpp" />
-    <ClCompile Include="Lection_3_template_args_3_tuple.cpp" />
+    <ClCompile Include="Lection_3_10_lambda.cpp" />
+    <ClCompile Include="Lection_3_11_std_function.cpp" />
+    <ClCompile Include="Lection_3_1_constexpr.cpp" />
+    <ClCompile Include="Lection_3_2_template_args.cpp" />
+    <ClCompile Include="Lection_3_3_template_args.cpp" />
+    <ClCompile Include="Lection_3_4_template_args_tuple.cpp" />
+    <ClCompile Include="Lection_3_5_template_sort.cpp" />
+    <ClCompile Include="Lection_3_6_template_sort.cpp" />
+    <ClCompile Include="Lection_3_7_template_sort_functor.cpp" />
+    <ClCompile Include="Lection_3_8_template_sort_functor.cpp" />
+    <ClCompile Include="Lection_3_9_mutable.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

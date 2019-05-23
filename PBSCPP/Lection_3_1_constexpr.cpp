@@ -44,27 +44,30 @@ namespace cpp17
 		return A;
 	}
 
-	int main_lection_3_constexpr()
+}
+
+int main_lection_3_1_constexpr()
+{
+	using namespace cpp17;
+
+	constexpr std::array<int, 3> A = GetArray();
+
+	const std::array<int, 3> B = GetArray();
+
+	std::array<int, 3> C = GetArray();
+
+	std::cout << "cpp17: " << A[2] << std::endl;
+
+	if constexpr (A[1] == 2)
 	{
-		constexpr std::array<int, 3> A = GetArray();
-
-		const std::array<int, 3> B = GetArray();
-
-		std::array<int, 3> C = GetArray();
-
-		std::cout << "cpp17: " << A[2] << std::endl;
-
-		if constexpr (A[1] == 2)
-		{
-			C[1] = 8;
-		}
-		else
-		{
-			C[1] = 12;
-		}
-
-		std::cout << "main_local.end" << std::endl;
-
-		return 0;
+		C[1] = 8;
 	}
+	else
+	{
+		C[1] = 12;
+	}
+
+	std::cout << "main_local.end" << std::endl;
+
+	return 0;
 }

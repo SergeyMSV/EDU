@@ -19,11 +19,11 @@ constexpr auto Get(T value, Args... args)
 	}
 }
 
-int main_lection_3_template_args_2()
+int main_lection_3_3_template_args()
 {
 	std::cout << Get<2>(1, "abc", 'c', '4', '5') << std::endl;
 
-	std::cout << "main_lection_3_template_args_2.end" << std::endl;
+	std::cout << "main_lection_3_3_template_args.end" << std::endl;
 
 	return 0;
 }

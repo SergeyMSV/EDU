@@ -31,7 +31,7 @@ std::vector<std::pair<int, std::string>> get_pairs()
 //	return std::make_tuple(123, "qwerty");
 //}
 
-int main_lection_3_template_args_3_tuple()
+int main_lection_3_4_template_args_tuple()
 {
 	auto A = std::make_tuple(1, 10.0, "abc");
 	//std::cout << Get<2>(1, "abc", 'c', '4', '5') << std::endl;
@@ -42,16 +42,16 @@ int main_lection_3_template_args_3_tuple()
 
 		std::string s;
 
-		std::tie(a, s, b) = Func();
+		std::tie(a, s, b) = Func();//returns tuple
 
-		std::cout << "C++11" << a << s << b << std::endl;
+		std::cout << "C++11 " << a << s << b << std::endl;
 	}
 
 	//C++17
 	{
-		auto [a, s, b] = Func();
+		auto [a, s, b] = Func();//returns tuple
 
-		std::cout << "C++17" << a << s << b << std::endl;
+		std::cout << "C++17 " << a << s << b << std::endl;
 	}
 
 	// C++17 - структурное связывание
@@ -63,7 +63,7 @@ int main_lection_3_template_args_3_tuple()
 		}
 	}
 
-	std::cout << "main_lection_3_template_args_3_tuple.end" << std::endl;
+	std::cout << "main_lection_3_4_template_args_tuple.end" << std::endl;
 
 	return 0;
 }
