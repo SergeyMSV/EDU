@@ -135,10 +135,8 @@
     <ClCompile Include="Lection_3_7_template_sort_functor.cpp" />
     <ClCompile Include="Lection_3_8_template_sort_functor.cpp" />
     <ClCompile Include="Lection_3_9_mutable.cpp" />
+    <ClCompile Include="Lection_6_1.cpp" />
     <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Lection_3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

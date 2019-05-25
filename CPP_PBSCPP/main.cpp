@@ -9,6 +9,7 @@ int main_lection_3_8_template_sort_functor();
 int main_lection_3_9_mutable();
 int main_lection_3_10_lambda();
 int main_lection_3_11_std_function();
+int main_lection_6_1();
 
 int main()
  {
@@ -23,6 +24,7 @@ int main()
 	main_lection_3_9_mutable();
 	main_lection_3_10_lambda();
 	main_lection_3_11_std_function();
+	main_lection_6_1();
 
 	return 0;
 }

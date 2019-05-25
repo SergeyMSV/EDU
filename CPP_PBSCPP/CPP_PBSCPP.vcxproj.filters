@@ -49,10 +49,8 @@
     <ClCompile Include="Lection_3_11_std_function.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Lection_3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClCompile Include="Lection_6_1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
