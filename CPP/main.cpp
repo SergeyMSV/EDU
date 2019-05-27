@@ -15,6 +15,8 @@ void UnitTest_Lambda2();
 void UnitTest_Mutex();
 void UnitTest_Pointer();
 void UnitTest_Ref();
+void UnitTest_SmartPtr_Shared();
+void UnitTest_SmartPtr_Unique();
 void UnitTest_Static1();
 void UnitTest_Static2();
 void UnitTest_Static3();
@@ -26,7 +28,7 @@ void UnitTest_Type();
 
 int main()
 {
-	test::UnitTest_ClassOverride();
+	/*test::UnitTest_ClassOverride();
 	test::UnitTest_ClassExplicit();
 	test::UnitTest_ClassMove();
 	test::UnitTest_Const();
@@ -35,7 +37,9 @@ int main()
 	test::UnitTest_Lambda2();
 	test::UnitTest_Mutex();
 	test::UnitTest_Pointer();
-	test::UnitTest_Ref();
+	test::UnitTest_Ref();*/
+	test::UnitTest_SmartPtr_Shared();
+	test::UnitTest_SmartPtr_Unique();
 /*	test::UnitTest_Static1();
 	test::UnitTest_Static2();
 	test::UnitTest_Static3();

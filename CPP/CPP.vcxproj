@@ -165,6 +165,7 @@
     <ClCompile Include="testMutex.cpp" />
     <ClCompile Include="testPointer.cpp" />
     <ClCompile Include="testRef.cpp" />
+    <ClCompile Include="testSmartPtr_Unique.cpp" />
     <ClCompile Include="testStatic1.cpp" />
     <ClCompile Include="testStatic2.cpp" />
     <ClCompile Include="testStatic3.cpp" />
@@ -172,7 +173,7 @@
     <ClCompile Include="testTemplate01Class.cpp" />
     <ClCompile Include="testThread.cpp" />
     <ClCompile Include="testType.cpp" />
-    <ClCompile Include="testSmartPtr.cpp" />
+    <ClCompile Include="testSmartPtr_Shared.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="testClassOverride.h" />
@@ -180,10 +181,11 @@
     <ClInclude Include="testClassMove.h" />
     <ClInclude Include="testConst.h" />
     <ClInclude Include="testRef.h" />
+    <ClInclude Include="testSmartPtr_Unique.h" />
     <ClInclude Include="testStatic.h" />
     <ClInclude Include="testStruct.h" />
     <ClInclude Include="testTemplate01Class.h" />
-    <ClInclude Include="testSmartPtr.h" />
+    <ClInclude Include="testSmartPtr_Shared.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

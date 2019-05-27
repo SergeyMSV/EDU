@@ -63,7 +63,10 @@
     <ClCompile Include="testClassExplicit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testSmartPtr.cpp">
+    <ClCompile Include="testSmartPtr_Shared.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="testSmartPtr_Unique.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -92,7 +95,10 @@
     <ClInclude Include="testClassExplicit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="testSmartPtr.h">
+    <ClInclude Include="testSmartPtr_Shared.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testSmartPtr_Unique.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
