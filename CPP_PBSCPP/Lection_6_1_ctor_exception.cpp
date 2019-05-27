@@ -91,5 +91,7 @@ int main_lection_6_1()
 		std::cout << ex << std::endl;
 	}
 
+	std::cout << "main_lection_6_1.end" << std::endl;
+
 	return 0;
 }

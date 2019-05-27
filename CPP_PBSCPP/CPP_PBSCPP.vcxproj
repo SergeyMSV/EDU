@@ -135,7 +135,12 @@
     <ClCompile Include="Lection_3_7_template_sort_functor.cpp" />
     <ClCompile Include="Lection_3_8_template_sort_functor.cpp" />
     <ClCompile Include="Lection_3_9_mutable.cpp" />
-    <ClCompile Include="Lection_6_1.cpp" />
+    <ClCompile Include="Lection_6_1_ctor_exception.cpp" />
+    <ClCompile Include="Lection_6_2.cpp" />
+    <ClCompile Include="Lection_6_3_operator_new_delete.cpp" />
+    <ClCompile Include="Lection_6_4_operator_new_delete.cpp" />
+    <ClCompile Include="Lection_6_5_operator_new_delete.cpp" />
+    <ClCompile Include="Lection_6_6_allocator.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

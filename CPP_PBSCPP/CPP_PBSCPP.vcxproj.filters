@@ -49,7 +49,22 @@
     <ClCompile Include="Lection_3_11_std_function.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lection_6_1.cpp">
+    <ClCompile Include="Lection_6_2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lection_6_3_operator_new_delete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lection_6_1_ctor_exception.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lection_6_4_operator_new_delete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lection_6_5_operator_new_delete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lection_6_6_allocator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

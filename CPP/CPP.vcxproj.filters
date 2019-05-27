@@ -63,6 +63,9 @@
     <ClCompile Include="testClassExplicit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="testSmartPtr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="testStruct.h">
@@ -87,6 +90,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="testClassExplicit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testSmartPtr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

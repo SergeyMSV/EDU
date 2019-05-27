@@ -10,6 +10,11 @@ int main_lection_3_9_mutable();
 int main_lection_3_10_lambda();
 int main_lection_3_11_std_function();
 int main_lection_6_1();
+int main_lection_6_2();
+int main_lection_6_3();
+int main_lection_6_4();
+int main_lection_6_5();
+int main_lection_6_6();
 
 int main()
  {
@@ -25,6 +30,11 @@ int main()
 	main_lection_3_10_lambda();
 	main_lection_3_11_std_function();
 	main_lection_6_1();
+	main_lection_6_2();
+	main_lection_6_3();
+	main_lection_6_4();
+	main_lection_6_5();
+	main_lection_6_6();
 
 	return 0;
 }

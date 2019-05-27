@@ -172,6 +172,7 @@
     <ClCompile Include="testTemplate01Class.cpp" />
     <ClCompile Include="testThread.cpp" />
     <ClCompile Include="testType.cpp" />
+    <ClCompile Include="testSmartPtr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="testClassOverride.h" />
@@ -182,6 +183,7 @@
     <ClInclude Include="testStatic.h" />
     <ClInclude Include="testStruct.h" />
     <ClInclude Include="testTemplate01Class.h" />
+    <ClInclude Include="testSmartPtr.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
