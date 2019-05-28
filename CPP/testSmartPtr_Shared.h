@@ -7,10 +7,8 @@ namespace smart_ptr
 template <typename T>
 class tSharedPtr
 {
-	class tSharedPtrRep
+	struct tSharedPtrRep
 	{
-		friend class tSharedPtr;
-
 		T* m_Ptr;
 
 		unsigned short m_Count;
