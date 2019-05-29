@@ -60,7 +60,7 @@ int main()
 
 							Balance_Second = DataSet->DateTime.Second;
 
-							DataSet->ToString();
+							std::string Str = DataSet->ToString();
 
 							DataSet->Count = 0;
 						}

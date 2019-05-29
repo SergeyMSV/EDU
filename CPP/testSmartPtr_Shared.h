@@ -68,7 +68,7 @@ public:
 };
 
 template<typename T, typename... TArgs>
-static tSharedPtr<T> Make_SharedPtr(TArgs ...args)
+tSharedPtr<T> Make_SharedPtr(TArgs ...args)
 {
 	return tSharedPtr<T>(new T(args...));
 }
