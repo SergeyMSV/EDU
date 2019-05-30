@@ -67,5 +67,8 @@
     <ClCompile Include="Lection_6_6_allocator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Lection_13_27_thread_future.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

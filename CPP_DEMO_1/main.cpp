@@ -25,7 +25,7 @@ int main()
 
 	std::thread ThreadNMEAGenerator(NMEA::Make_NMEA, std::ref(ThreadControl), std::ref(DataSet));
 
-	std::thread([&DataSet, &ThreadControl]
+	std::thread ThreadApply([&DataSet, &ThreadControl]
 		{
 			unsigned short Balance_Millisecond = std::numeric_limits<unsigned short>::max();
 			unsigned short Balance_Second = std::numeric_limits<unsigned short>::max();
@@ -74,7 +74,7 @@ int main()
 				std::this_thread::sleep_for(0.1s);
 			}
 		}
-	).detach();
+	);//.detach(); - that's not a good idea because ref inside...
 
 	while (true)
 	{
@@ -108,7 +108,8 @@ int main()
 		//std::this_thread::sleep_for(1s);
 	}
 
-	ThreadNMEAGenerator.join();
+	ThreadNMEAGenerator.join();//ref inside
+	ThreadApply.join();//ref inside
 
 	return 0;
 }
