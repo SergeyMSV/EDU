@@ -58,10 +58,16 @@ public:
 	}
 };
 
+//template <typename T, typename... TArgs>
+//tUniquePtr<T> Make_UniquePtr(TArgs ...args)
+//{
+//	return tUniquePtr<T>(new T(args...));
+//}
+
 template <typename T, typename... TArgs>
-tUniquePtr<T> Make_UniquePtr(TArgs ...args)
+tUniquePtr<T> Make_UniquePtr(TArgs&& ...args)
 {
-	return tUniquePtr<T>(new T(args...));
+	return tUniquePtr<T>(new T(std::forward<TArgs>(args)...));
 }
 
 }

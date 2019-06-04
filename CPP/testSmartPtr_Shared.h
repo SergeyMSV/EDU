@@ -67,10 +67,16 @@ public:
 	}
 };
 
+//template<typename T, typename... TArgs>
+//tSharedPtr<T> Make_SharedPtr(TArgs ...args)
+//{
+//	return tSharedPtr<T>(new T(args...));
+//}
+
 template<typename T, typename... TArgs>
-tSharedPtr<T> Make_SharedPtr(TArgs ...args)
+tSharedPtr<T> Make_SharedPtr(TArgs&& ...args)
 {
-	return tSharedPtr<T>(new T(args...));
+	return tSharedPtr<T>(new T(std::forward<TArgs>(args)...));
 }
 
 }
