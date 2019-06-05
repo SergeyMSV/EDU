@@ -158,6 +158,7 @@
     <ClCompile Include="testClassOverride.cpp" />
     <ClCompile Include="testClassExplicit.cpp" />
     <ClCompile Include="testClassMove.cpp" />
+    <ClCompile Include="testClassVirtual.cpp" />
     <ClCompile Include="testConst.cpp" />
     <ClCompile Include="testException.cpp" />
     <ClCompile Include="testLambda.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="testClassOverride.h" />
     <ClInclude Include="testClassExplicit.h" />
     <ClInclude Include="testClassMove.h" />
+    <ClInclude Include="testClassVirtual.h" />
     <ClInclude Include="testConst.h" />
     <ClInclude Include="testRef.h" />
     <ClInclude Include="testSmartPtr_Unique.h" />

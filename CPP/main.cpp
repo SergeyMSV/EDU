@@ -8,6 +8,7 @@ namespace test
 void UnitTest_ClassOverride();
 void UnitTest_ClassExplicit();
 void UnitTest_ClassMove();
+void UnitTest_ClassVirtual();
 void UnitTest_Const();
 void UnitTest_Exception();
 void UnitTest_Lambda();
@@ -28,24 +29,27 @@ void UnitTest_Type();
 
 int main()
 {
-	/*test::UnitTest_ClassOverride();
-	test::UnitTest_ClassExplicit();
-	test::UnitTest_ClassMove();
-	test::UnitTest_Const();
-	test::UnitTest_Exception();
-	test::UnitTest_Lambda();
-	test::UnitTest_Lambda2();
-	test::UnitTest_Mutex();
-	test::UnitTest_Pointer();
-	test::UnitTest_Ref();*/
-	test::UnitTest_SmartPtr_Shared();
-	test::UnitTest_SmartPtr_Unique();
-/*	test::UnitTest_Static1();
-	test::UnitTest_Static2();
-	test::UnitTest_Static3();
-	test::UnitTest_Struct();
-	test::UnitTest_Thread();
-	test::UnitTest_Type();
+	using namespace test;
+
+	/*UnitTest_ClassOverride();
+	UnitTest_ClassExplicit();
+	UnitTest_ClassMove();*/
+	UnitTest_ClassVirtual();
+	/*UnitTest_Const();
+	UnitTest_Exception();
+	UnitTest_Lambda();
+	UnitTest_Lambda2();
+	UnitTest_Mutex();
+	UnitTest_Pointer();
+	UnitTest_Ref();*/
+	UnitTest_SmartPtr_Shared();
+	UnitTest_SmartPtr_Unique();
+/*	UnitTest_Static1();
+	UnitTest_Static2();
+	UnitTest_Static3();
+	UnitTest_Struct();
+	UnitTest_Thread();
+	UnitTest_Type();
 
     std::cout << "Hello World!\n";
 
