@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPP_META", "CPP_META\CPP_ME
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPP_Boost", "CPP_Boost\CPP_Boost.vcxproj", "{C4A288D5-D978-4620-994B-08BF36776889}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPP_Boost_Asio", "CPP_Boost_Asio\CPP_Boost_Asio.vcxproj", "{02563ACE-5CA1-4AAB-94EE-258BF5C0614B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,16 @@ Global
 		{C4A288D5-D978-4620-994B-08BF36776889}.Release|x64.Build.0 = Release|x64
 		{C4A288D5-D978-4620-994B-08BF36776889}.Release|x86.ActiveCfg = Release|Win32
 		{C4A288D5-D978-4620-994B-08BF36776889}.Release|x86.Build.0 = Release|Win32
+		{02563ACE-5CA1-4AAB-94EE-258BF5C0614B}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{02563ACE-5CA1-4AAB-94EE-258BF5C0614B}.Debug|x64.ActiveCfg = Debug|x64
+		{02563ACE-5CA1-4AAB-94EE-258BF5C0614B}.Debug|x64.Build.0 = Debug|x64
+		{02563ACE-5CA1-4AAB-94EE-258BF5C0614B}.Debug|x86.ActiveCfg = Debug|Win32
+		{02563ACE-5CA1-4AAB-94EE-258BF5C0614B}.Debug|x86.Build.0 = Debug|Win32
+		{02563ACE-5CA1-4AAB-94EE-258BF5C0614B}.Release|Any CPU.ActiveCfg = Release|Win32
+		{02563ACE-5CA1-4AAB-94EE-258BF5C0614B}.Release|x64.ActiveCfg = Release|x64
+		{02563ACE-5CA1-4AAB-94EE-258BF5C0614B}.Release|x64.Build.0 = Release|x64
+		{02563ACE-5CA1-4AAB-94EE-258BF5C0614B}.Release|x86.ActiveCfg = Release|Win32
+		{02563ACE-5CA1-4AAB-94EE-258BF5C0614B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
