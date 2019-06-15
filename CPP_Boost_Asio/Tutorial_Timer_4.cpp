@@ -2,6 +2,9 @@
 #include <boost/asio.hpp>
 #include <boost/bind.hpp>
 
+namespace tutorial_timer_4
+{
+
 class tPrinter
 {
 	boost::asio::steady_timer timer_;
@@ -34,8 +37,12 @@ public:
 	}
 };
 
+}
+
 void Tutorial_Timer_4()
 {
+	using namespace tutorial_timer_4;
+
 	boost::asio::io_context io;
 
 	tPrinter p(io);

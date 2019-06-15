@@ -34,5 +34,14 @@
     <ClCompile Include="Tutorial_Timer_5.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Tutorial_Daytime_1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tutorial_Daytime_2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tutorial_Daytime_3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

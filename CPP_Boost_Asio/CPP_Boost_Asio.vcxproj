@@ -132,6 +132,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Tutorial_Daytime_1.cpp" />
+    <ClCompile Include="Tutorial_Daytime_2.cpp" />
+    <ClCompile Include="Tutorial_Daytime_3.cpp" />
     <ClCompile Include="Tutorial_Timer_1.cpp" />
     <ClCompile Include="Tutorial_Timer_2.cpp" />
     <ClCompile Include="Tutorial_Timer_3.cpp" />
