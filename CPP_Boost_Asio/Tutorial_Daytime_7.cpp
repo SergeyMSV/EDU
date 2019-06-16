@@ -1,14 +1,16 @@
 #include <ctime>
 #include <iostream>
 #include <string>
+#include <boost/array.hpp>
 #include <boost/bind.hpp>
 #include <boost/shared_ptr.hpp>
 #include <boost/enable_shared_from_this.hpp>
 #include <boost/asio.hpp>
 
 using boost::asio::ip::tcp;
+using boost::asio::ip::udp;
 
-namespace tutorial_daytime_3
+namespace tutorial_daytime_7
 {
 
 std::string make_daytime_string()
@@ -27,7 +29,6 @@ std::string make_daytime_string()
 class tcp_connection : public boost::enable_shared_from_this<tcp_connection>
 {
 	tcp::socket socket_;
-
 	std::string message_;
 
 public:
@@ -48,9 +49,7 @@ public:
 		message_ = make_daytime_string();
 
 		boost::asio::async_write(socket_, boost::asio::buffer(message_),
-			boost::bind(&tcp_connection::handle_write, shared_from_this(),
-				boost::asio::placeholders::error,
-				boost::asio::placeholders::bytes_transferred));
+			boost::bind(&tcp_connection::handle_write, shared_from_this()));
 	}
 
 private:
@@ -59,24 +58,14 @@ private:
 	{
 	}
 
-	void handle_write(const boost::system::error_code& error, size_t /*bytes_transferred*/)
+	void handle_write()
 	{
-		if (!error)
-		{
-			message_ = make_daytime_string();
-
-			boost::asio::async_write(socket_, boost::asio::buffer(message_),
-				boost::bind(&tcp_connection::handle_write, shared_from_this(),
-					boost::asio::placeholders::error,
-					boost::asio::placeholders::bytes_transferred));
-		}
 	}
 };
 
 class tcp_server
 {
 	boost::asio::io_context& io_context_;
-
 	tcp::acceptor acceptor_;
 
 public:
@@ -90,13 +79,16 @@ public:
 private:
 	void start_accept()
 	{
-		tcp_connection::pointer new_connection = tcp_connection::create(io_context_);
+		tcp_connection::pointer new_connection =
+			tcp_connection::create(io_context_);
 
 		acceptor_.async_accept(new_connection->socket(),
-			boost::bind(&tcp_server::handle_accept, this, new_connection, boost::asio::placeholders::error));
+			boost::bind(&tcp_server::handle_accept, this, new_connection,
+				boost::asio::placeholders::error));
 	}
 
-	void handle_accept(tcp_connection::pointer new_connection, const boost::system::error_code& error)
+	void handle_accept(tcp_connection::pointer new_connection,
+		const boost::system::error_code& error)
 	{
 		if (!error)
 		{
@@ -107,17 +99,60 @@ private:
 	}
 };
 
+class udp_server
+{
+	udp::socket socket_;
+	udp::endpoint remote_endpoint_;
+	boost::array<char, 1> recv_buffer_;
+
+public:
+	udp_server(boost::asio::io_context& io_context)
+		: socket_(io_context, udp::endpoint(udp::v4(), 13))
+	{
+		start_receive();
+	}
+
+private:
+	void start_receive()
+	{
+		socket_.async_receive_from(
+			boost::asio::buffer(recv_buffer_), remote_endpoint_,
+			boost::bind(&udp_server::handle_receive, this,
+				boost::asio::placeholders::error));
+	}
+
+	void handle_receive(const boost::system::error_code& error)
+	{
+		if (!error)
+		{
+			boost::shared_ptr<std::string> message(
+				new std::string(make_daytime_string()));
+
+			socket_.async_send_to(boost::asio::buffer(*message), remote_endpoint_,
+				boost::bind(&udp_server::handle_send, this, message));
+
+			start_receive();
+		}
+	}
+
+	void handle_send(boost::shared_ptr<std::string> /*message*/)
+	{
+	}
+};
+
 }
 
-void Tutorial_Daytime_3()
+void Tutorial_Daytime_7()
 {
-	using namespace tutorial_daytime_3;
+	using namespace tutorial_daytime_7;
 
 	try
 	{
 		boost::asio::io_context io_context;
 
-		tcp_server server(io_context);
+		tcp_server server1(io_context);
+
+		udp_server server2(io_context);
 
 		io_context.run();
 	}
