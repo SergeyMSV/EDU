@@ -291,8 +291,6 @@ class tPacket : public tFormat<tPayload>, tPayload
 public:
 	tPacket() { }
 
-	//static tPacket Make()
-
 	static bool TryParse(const tVectorUInt8& packetVector, tPacket& packet)
 	{
 		return tFormat<tPayload>::TryParse(packetVector, packet, packet);
