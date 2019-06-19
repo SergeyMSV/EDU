@@ -32,6 +32,8 @@ protected:
 				return tVectorUInt8(cbegin, cbegin + GetSize(DataSize - 1));
 			}
 		}
+
+		return tVectorUInt8();
 	}
 
 	static bool TryParse(const tVectorUInt8& packetVector, tFormatStar2& format, tPayload& payload)
