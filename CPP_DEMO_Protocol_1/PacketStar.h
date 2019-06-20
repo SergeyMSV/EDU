@@ -23,7 +23,7 @@ protected:
 			tVectorUInt8::const_iterator CBegin = cbegin + 1;
 			tVectorUInt8::const_iterator CEnd = CBegin + sizeof(DataSize);
 
-			std::copy(CBegin, CEnd, (unsigned char*)& DataSize);
+			std::copy(CBegin, CEnd, reinterpret_cast<tUInt8*>(&DataSize));
 
 			if (Size >= GetSize(DataSize)/* && CheckCRC(packetVector.begin(), end;)*/)
 			{
@@ -43,7 +43,7 @@ protected:
 			tVectorUInt8::const_iterator CBegin = packetVector.cbegin() + 1;
 			tVectorUInt8::const_iterator CEnd = CBegin + sizeof(DataSize);
 
-			std::copy(CBegin, CEnd, (unsigned char*)& DataSize);
+			std::copy(CBegin, CEnd, reinterpret_cast<tUInt8*>(&DataSize));
 
 			if (packetVector.size() == GetSize(DataSize)/* && CheckCRC(packetVector)*/)
 			{

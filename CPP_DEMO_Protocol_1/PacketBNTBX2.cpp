@@ -7,9 +7,9 @@ void PacketBNTBX2()
 	{
 		tPacketBNTBX2 Packet;
 
-		tMsgBNTBX0802 Msg(0x25);
+		tMsgBNTBX0802Rsp Msg(0x25);
 
-		Packet.SetMsg<tMsgBNTBX0802>(Msg);
+		Packet.SetMsg<tMsgBNTBX0802Rsp>(Msg);
 
 		tVectorUInt8 PacketVector = Packet.ToVector();
 	}
@@ -33,7 +33,7 @@ void PacketBNTBX2()
 				{
 					try
 					{
-						tMsgBNTBX0802 Msg = Packet.GetMsg<tMsgBNTBX0802>();
+						tMsgBNTBX0802Rsp Msg = Packet.GetMsg<tMsgBNTBX0802Rsp>();
 
 						std::cout << "tPacketBNTBX2::GetMsg<tPayloadBNTBX0802>() OK\n";
 					}
