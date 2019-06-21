@@ -11,6 +11,8 @@ class tServerTCPConnection : public boost::enable_shared_from_this<tServerTCPCon
 {
 	tcp::socket m_Socket;
 
+	tVectorUInt8 m_ReceivedData;
+
 	tServerTCPConnection(boost::asio::io_context& io_context)
 		:m_Socket(io_context)
 	{
@@ -33,9 +35,33 @@ public:
 	void Start()
 	{
 		//[TBD] READING 08 Cmd
+		m_ReceivedData = tVectorUInt8(4096);
+
+		m_Socket.async_read_some(
+			boost::asio::buffer(m_ReceivedData),
+			boost::bind(
+				&tServerTCPConnection::HandleRead, shared_from_this(),
+				boost::asio::placeholders::error,
+				boost::asio::placeholders::bytes_transferred));
 	}
 
 private:
+	void HandleRead(const boost::system::error_code& error, size_t bytes_transferred)
+	{
+		if (!error)
+		{
+			std::cout << "HandleRead: " << bytes_transferred << '\n';
+
+			//boost::shared_ptr<std::string> message(new std::string(make_daytime_string()));
+
+			//socket_.async_send_to(boost::asio::buffer(*message), remote_endpoint_,
+			//	boost::bind(&udp_server::handle_send, this, message,
+			//		boost::asio::placeholders::error,
+			//		boost::asio::placeholders::bytes_transferred));
+
+			Start();
+		}
+	}
 	//void handle_read(const boost::system::error_code& error, size_t /*bytes_transferred*/)
 	//{
 	//	if (!error)
