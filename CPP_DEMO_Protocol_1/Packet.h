@@ -14,8 +14,8 @@
 typedef unsigned char tUInt8;
 typedef std::vector<tUInt8> tVectorUInt8;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-template<typename T>//[TBD]Check that T is a value-type containing no iterators.
-inline void Append(tVectorUInt8& dst, const T& value)
+template<typename T>
+inline typename std::enable_if<std::is_trivially_copyable<T>::value, void>::type Append(tVectorUInt8& dst, const T& value)
 {
 	const unsigned char* Begin = reinterpret_cast<const tUInt8*>(&value);
 
