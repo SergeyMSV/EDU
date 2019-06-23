@@ -27,8 +27,11 @@ protected:
 
 			std::copy(CBegin, CEnd, reinterpret_cast<tUInt8*>(&DataSize));
 
-			if (Size >= GetSize(DataSize - 1)/* && CheckCRC(packetVector.begin(), end;)*/)
+			if (Size >= GetSize(DataSize - 1))
 			{
+				//Get CRC
+				//if (CheckCRC(packetVector))
+
 				return tVectorUInt8(cbegin, cbegin + GetSize(DataSize - 1));
 			}
 		}
@@ -47,8 +50,11 @@ protected:
 
 			std::copy(CBegin, CEnd, reinterpret_cast<tUInt8*>(&DataSize));
 
-			if (packetVector.size() == GetSize(DataSize - 1)/* && CheckCRC(packetVector)*/)
+			if (packetVector.size() == GetSize(DataSize - 1))
 			{
+				//Get CRC
+				//if (CheckCRC(packetVector))
+
 				CBegin = CEnd;
 				CEnd += 1;
 

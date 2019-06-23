@@ -96,20 +96,23 @@ protected:
 
 			std::copy(CBegin, CEnd, reinterpret_cast<tUInt8*>(&PayloadSize));
 
-			unsigned short CRC = 0;
-
-			tVectorUInt8::const_iterator CBegin_CRC = CEnd + PayloadSize;
-
-			std::copy(CBegin_CRC, CBegin_CRC + sizeof(CRC), reinterpret_cast<tUInt8*>(&CRC));
-
-			if (packetVector.size() == GetSize(PayloadSize) && CRC == utils::crc::CRC16_BNTBX2(packetVector.cbegin() + 1, CBegin_CRC))
+			if (packetVector.size() == GetSize(PayloadSize))
 			{
-				CBegin = CEnd;
-				CEnd += PayloadSize;
+				unsigned short CRC = 0;
 
-				payload = tPayload(CBegin, CEnd);
+				tVectorUInt8::const_iterator CBegin_CRC = CEnd + PayloadSize;
 
-				return true;
+				std::copy(CBegin_CRC, CBegin_CRC + sizeof(CRC), reinterpret_cast<tUInt8*>(&CRC));
+
+				if (CRC == utils::crc::CRC16_BNTBX2(packetVector.cbegin() + 1, CBegin_CRC))
+				{
+					CBegin = CEnd;
+					CEnd += PayloadSize;
+
+					payload = tPayload(CBegin, CEnd);
+
+					return true;
+				}
 			}
 		}
 
@@ -127,7 +130,7 @@ protected:
 		dst.push_back(static_cast<tUInt8>(MsgID));
 		dst.push_back(MsgVER);
 
-		::Append(dst, static_cast<unsigned short>(payload.GetSize() + 1));
+		::Append(dst, static_cast<unsigned short>(payload.GetSize()));
 
 		payload.Append(dst);
 

@@ -12,6 +12,17 @@ void PacketBNTBX2()
 		Packet.SetMsg<tMsgBNTBX0802Rsp>(Msg);
 
 		tVectorUInt8 PacketVector = Packet.ToVector();
+
+		tPacketBNTBX2 Packet_Decoded;
+
+		if (tPacketBNTBX2::TryParse(PacketVector, Packet_Decoded))
+		{
+			std::cout << "tPacketBNTBX2::TryParse() OK\n";
+		}
+		else
+		{
+			std::cout << "tPacketBNTBX2::TryParse() ER\n";
+		}
 	}
 
 	{

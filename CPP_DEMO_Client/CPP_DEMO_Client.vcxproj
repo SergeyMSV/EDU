@@ -133,6 +133,13 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Lib\utilsCRC.h" />
+    <ClInclude Include="Packet.h" />
+    <ClInclude Include="PacketBNTBX2.h" />
+    <ClInclude Include="PacketBNTBX2_Msg0802.h" />
+    <ClInclude Include="PacketStar.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

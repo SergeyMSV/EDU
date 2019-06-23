@@ -1,7 +1,7 @@
 #include <boost/asio.hpp>
 #include <vector>
 #include <iostream>
-#include "PacketBNTBX2.h"
+#include "Benchmark.h"
 #include "ServerTCP.h"
 
 int main(int argc, char* argv[])
@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
 	{
 		boost::asio::io_context IO_Context;
 
-		tServerTCP Server(IO_Context);
+		tBenchmark<tServerTCP> BM(IO_Context);
 
 		IO_Context.run();
 	}
