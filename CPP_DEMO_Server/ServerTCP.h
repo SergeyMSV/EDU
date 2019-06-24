@@ -7,6 +7,7 @@
 //#include <unordered_map>
 #include <deque>
 #include <iostream>//TEST
+#include <mutex>
 #include "Shared.h"
 
 using boost::asio::ip::tcp;
@@ -17,6 +18,10 @@ class tServerTCP : public boost::enable_shared_from_this<tServerTCP>
 
 	class tServerTCPConnection : public boost::enable_shared_from_this<tServerTCPConnection>
 	{
+		friend tServerTCP;
+
+		unsigned int m_ConnectionID;//start time, duration, etc.
+
 		tcp::socket m_Socket;
 
 		tVectorUInt8 m_ReceivedData = tVectorUInt8(4096);
@@ -26,7 +31,11 @@ class tServerTCP : public boost::enable_shared_from_this<tServerTCP>
 		tServerTCPConnection(boost::asio::io_context& io_context, tServerTCP::tPointer server)
 			:m_Socket(io_context), m_Server(server)
 		{
-			std::cout << "tServerTCPConnection\n";
+			static unsigned int ConnectionID = 0;
+
+			m_ConnectionID = ConnectionID++;
+
+			std::cout << "tServerTCPConnection: " << m_ConnectionID << '\n';
 		}
 
 	public:
@@ -36,7 +45,7 @@ class tServerTCP : public boost::enable_shared_from_this<tServerTCP>
 		{
 			m_Socket.close();
 
-			std::cout << "~tServerTCPConnection\n";
+			std::cout << "~tServerTCPConnection: " << m_ConnectionID << '\n';
 		}
 
 		static tPointer Create(boost::asio::io_context& io_context, tServerTCP::tPointer server)
@@ -74,6 +83,7 @@ class tServerTCP : public boost::enable_shared_from_this<tServerTCP>
 
 	tcp::acceptor m_Acceptor;
 
+	std::mutex m_ConnectionsMtx;
 	std::deque<tServerTCPConnection::tPointer> m_Connections;
 
 public:
@@ -96,9 +106,11 @@ public:
 
 	void DisplayConnections()
 	{
+		std::lock_guard<std::mutex> Mtx(m_ConnectionsMtx);
+
 		for (auto& i : m_Connections)
 		{
-			std::cout << " " << (i->socket().is_open() ? "open" : "closed") << '\n';
+			std::cout << " " << i->m_ConnectionID << " " << (i->socket().is_open() ? "open" : "closed") << '\n';
 		}
 	}
 
@@ -107,7 +119,11 @@ private:
 	{
 		if (!error)
 		{
-			m_Connections.push_back(connection);
+			{
+				std::lock_guard<std::mutex> Mtx(m_ConnectionsMtx);
+
+				m_Connections.push_back(connection);
+			}
 
 			//OnConnected(connection);
 			
@@ -125,7 +141,7 @@ private:
 		//{
 			//[TBD]Remove closed connection from the queue
 
-			std::cout << "HandleBreak " << error << '\n';
+			std::cout << "HandleBreak " << connection->m_ConnectionID <<" "<< error << '\n';
 
 			//if (*i.get() == connection.get())
 			//{
