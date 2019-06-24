@@ -30,24 +30,19 @@ class tBenchmark
 		//void Send(const tVectorUInt8&& data) { };
 	};
 
-	//boost::asio::io_context& m_IO_Context;
-
 	boost::shared_ptr<tServerHandler> m_Server;
-
-	//boost::shared_ptr<tServerHandler> m_Server;
-
-//	tIConnection p_ServerActiveConnection = nullptr;
 
 	std::deque<tVectorUInt8> m_ServerQueue;
 
 public:
 	tBenchmark(boost::asio::io_context& io_context)
-		//:m_Server(this, io_context)//, m_IO_Context(io_context)//, std::bind(&tBenchmark::Received, (void*)this, std::placeholders::_1))
+		:m_Server(new tServerHandler(this, io_context))
 	{
-		m_Server = boost::shared_ptr<tServerHandler>(new tServerHandler(this, io_context));
-		//m_Server = boost::shared_ptr<tServer>(new tServer(io_context));
+		//m_Server = boost::shared_ptr<tServerHandler>(new tServerHandler(this, io_context));
 
-		m_Server.get()->Start();
+		m_Server->Start();
+
+		//m_Server.reset();
 		//m_Server = boost::shared_ptr<tServerHandler>(new tServerHandler(this, io_context));
 		//struct
 		//{
@@ -61,6 +56,10 @@ public:
 		//auto Bound = boost::bind(&tBenchmark::Received, this, boost::asio::placeholders::bytes_transferred);
 	}
 
+	void DisplayConnections()
+	{
+		m_Server->DisplayConnections();
+	}
 private:
 	//virtual void OnConnected(tServerTCPConnection::tPointer connection) override
 	//{

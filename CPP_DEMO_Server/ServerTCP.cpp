@@ -1,6 +1,6 @@
 #include "ServerTCP.h"
 
-void tServerTCPConnection::HandleRead(const boost::system::error_code& error, size_t bytes_transferred)
+void tServerTCP::tServerTCPConnection::HandleRead(const boost::system::error_code& error, size_t bytes_transferred)
 {
 	if (!error)
 	{
@@ -10,7 +10,7 @@ void tServerTCPConnection::HandleRead(const boost::system::error_code& error, si
 	}
 	else
 	{
-		//m_Socket.close();
+		m_Socket.close();
 
 		m_Server.get()->HandleBreak(shared_from_this(), error);
 	}

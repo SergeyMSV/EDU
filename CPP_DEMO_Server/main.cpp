@@ -1,6 +1,7 @@
 #include <boost/asio.hpp>
 #include <vector>
 #include <iostream>
+#include <thread>
 #include "Benchmark.h"
 #include "ServerTCP.h"
 
@@ -13,6 +14,21 @@ int main(int argc, char* argv[])
 		boost::asio::io_context IO_Context;
 
 		tBenchmark<tServerTCP> BM(IO_Context);
+
+		std::thread ThreadConsole([&]()
+			{
+				while (true)
+				{
+					std::string Cmd;
+
+					std::cin >> Cmd;
+
+					if (Cmd == "sockets")
+					{
+						BM.DisplayConnections();//[TBD]Thread-safe
+					}
+				}
+			});//[TBD]Close thread correctly
 
 		IO_Context.run();
 	}
