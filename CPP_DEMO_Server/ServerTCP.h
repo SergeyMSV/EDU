@@ -4,7 +4,6 @@
 #include <boost/bind.hpp>
 #include <boost/shared_ptr.hpp>
 #include <boost/enable_shared_from_this.hpp>
-//#include <unordered_map>
 #include <deque>
 #include <iostream>//TEST
 #include <mutex>
@@ -20,7 +19,7 @@ class tServerTCP : public boost::enable_shared_from_this<tServerTCP>
 	{
 		friend tServerTCP;
 
-		unsigned int m_ConnectionID;//start time, duration, etc.
+		tMeasureConnection m_MeasureConnection;
 
 		tcp::socket m_Socket;
 
@@ -33,9 +32,9 @@ class tServerTCP : public boost::enable_shared_from_this<tServerTCP>
 		{
 			static unsigned int ConnectionID = 0;
 
-			m_ConnectionID = ConnectionID++;
+			m_MeasureConnection = tMeasureConnection(ConnectionID++);
 
-			std::cout << "tServerTCPConnection: " << m_ConnectionID << '\n';
+			std::cout << "tServerTCPConnection: " << m_MeasureConnection.ID << '\n';
 		}
 
 	public:
@@ -45,7 +44,7 @@ class tServerTCP : public boost::enable_shared_from_this<tServerTCP>
 		{
 			m_Socket.close();
 
-			std::cout << "~tServerTCPConnection: " << m_ConnectionID << '\n';
+			std::cout << "~tServerTCPConnection: " << m_MeasureConnection.ID << '\n';
 		}
 
 		static tPointer Create(boost::asio::io_context& io_context, tServerTCP::tPointer server)
@@ -70,7 +69,9 @@ class tServerTCP : public boost::enable_shared_from_this<tServerTCP>
 
 		void Send(const tVectorUInt8&& data)
 		{
-			m_Socket.write_some(boost::asio::buffer(data));
+			size_t Bytes = m_Socket.write_some(boost::asio::buffer(data));
+
+			m_MeasureConnection.AddByteQtySent(Bytes);
 		}
 
 	private:
@@ -110,7 +111,8 @@ public:
 
 		for (auto& i : m_Connections)
 		{
-			std::cout << " " << i->m_ConnectionID << " " << (i->socket().is_open() ? "open" : "closed") << '\n';
+			std::cout << " " << i->m_MeasureConnection << '\n';
+			//std::cout << " " << i->m_MeasureConnection.ID << " " << (i->socket().is_open() ? "open" : "closed") << '\n';
 		}
 	}
 
@@ -141,7 +143,7 @@ private:
 		//{
 			//[TBD]Remove closed connection from the queue
 
-			std::cout << "HandleBreak " << connection->m_ConnectionID <<" "<< error << '\n';
+			std::cout << "HandleBreak " << connection->m_MeasureConnection.ID <<" "<< error << '\n';
 
 			//if (*i.get() == connection.get())
 			//{

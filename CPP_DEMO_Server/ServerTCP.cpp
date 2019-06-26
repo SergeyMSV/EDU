@@ -6,11 +6,15 @@ void tServerTCP::tServerTCPConnection::HandleRead(const boost::system::error_cod
 	{
 		m_Server.get()->OnReceived(tVectorUInt8(m_ReceivedData.begin(), m_ReceivedData.begin() + bytes_transferred));
 
+		m_MeasureConnection.AddByteQtySent(bytes_transferred);
+
 		Start();
 	}
 	else
 	{
 		m_Socket.close();
+
+		m_MeasureConnection.Closed();
 
 		m_Server.get()->HandleBreak(shared_from_this(), error);
 	}
