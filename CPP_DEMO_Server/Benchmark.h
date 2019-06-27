@@ -5,6 +5,8 @@
 #include <functional>
 #include <iostream>
 #include <deque>
+//#include "Measure.h"
+#include "ServerTCP.h"
 #include "Shared.h"
 #include "PacketBNTBX2.h"
 #include "PacketBNTBX2_Msg0802.h"
@@ -23,9 +25,9 @@ class tBenchmark
 		//{
 		//	//p_obj->p_ServerActiveConnection = connection;
 		//}
-		virtual void OnReceived(const tVectorUInt8&& data) override
+		virtual void OnReceived(const unsigned int connectionID, const tVectorUInt8&& data) override
 		{
-			p_obj->OnReceived(std::forward<const tVectorUInt8>(data));
+			p_obj->OnReceived(connectionID, std::forward<const tVectorUInt8>(data));
 		}
 		//void Send(const tVectorUInt8&& data) { };
 	};
@@ -58,22 +60,29 @@ public:
 
 	void DisplayConnections()
 	{
-		m_Server->DisplayConnections();
+		std::vector<tMeasureConnection> MeasureConnection = m_Server->GetMeasureConnection();
+
+		for (auto& i : MeasureConnection)
+		{
+			std::cout << " " << i << '\n';
+		}
+
+		//m_Server->DisplayConnections();
 	}
 private:
 	//virtual void OnConnected(tServerTCPConnection::tPointer connection) override
 	//{
 	//}
 
-	void OnReceived(const tVectorUInt8&& data)
+	void OnReceived(const unsigned int connectionID, const tVectorUInt8&& data)
 	{
-		std::cout << data.size() << '\n';
+		//std::cout << data.size() << '\n';
 
 		tPacketBNTBX2 Packet;
 
 		if (tPacketBNTBX2::TryParse(data, Packet))
 		{
-			std::cout << "tPacketBNTBX2::TryParse() OK\n";
+			//std::cout << "tPacketBNTBX2::TryParse() OK\n";
 
 			switch (Packet.GetMsgID())
 			{
@@ -87,11 +96,16 @@ private:
 					{
 						tMsgBNTBX0802Cmd Cmd = Packet.GetMsg<tMsgBNTBX0802Cmd>();
 
-						std::cout << "tPacketBNTBX2::GetMsg<tPayloadBNTBX0802>() OK " << static_cast<int>(Cmd.CheckID) << '\n';
+						//std::cout << "tPacketBNTBX2::GetMsg<tPayloadBNTBX0802>() OK " << static_cast<int>(Cmd.CheckID) << '\n';
 
-						tMsgBNTBX0802Rsp Msg(0x23);
+						tMsgBNTBX0802Rsp Rsp(0x23);
 
-						m_ServerQueue.push_back(Msg.ToVector());
+						tPacketBNTBX2 PacketAns;
+
+						PacketAns.SetMsg(Rsp);
+
+						m_Server->Send(connectionID, PacketAns.ToVector());
+						//m_ServerQueue.push_back(Msg.ToVector());
 					}
 					catch (std::exception ex)
 					{
@@ -104,6 +118,34 @@ private:
 
 				break;
 			}
+			//case tPacketBNTBX2::tMsgID::Msg09:
+			//{
+			//	switch (Packet.GetMsgVER())
+			//	{
+			//	case 0x02:
+			//	{
+			//		try
+			//		{
+			//			tMsgBNTBX0802Cmd Cmd = Packet.GetMsg<tMsgBNTBX0802Cmd>();
+
+			//			//std::cout << "tPacketBNTBX2::GetMsg<tPayloadBNTBX0802>() OK " << static_cast<int>(Cmd.CheckID) << '\n';
+
+			//			tMsgBNTBX0802Rsp Msg(0x23);
+
+			//			m_Server->Send(Msg.ToVector());
+			//			//m_ServerQueue.push_back(Msg.ToVector());
+			//		}
+			//		catch (std::exception ex)
+			//		{
+			//			std::cout << "tPacketBNTBX2::GetMsg<tPayloadBNTBX0802>() ER: " << ex.what() << '\n';
+			//		}
+
+			//		break;
+			//	}
+			//	}
+
+			//	break;
+			//}
 			}
 		}
 	}

@@ -5,8 +5,10 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/enable_shared_from_this.hpp>
 #include <deque>
-#include <iostream>//TEST
+#include <vector>
+//#include <iostream>//TEST
 #include <mutex>
+#include "Measure.h"
 #include "Shared.h"
 
 using boost::asio::ip::tcp;
@@ -18,6 +20,8 @@ class tServerTCP : public boost::enable_shared_from_this<tServerTCP>
 	class tServerTCPConnection : public boost::enable_shared_from_this<tServerTCPConnection>
 	{
 		friend tServerTCP;
+
+		unsigned int m_ConnectionID;
 
 		tMeasureConnection m_MeasureConnection;
 
@@ -32,9 +36,9 @@ class tServerTCP : public boost::enable_shared_from_this<tServerTCP>
 		{
 			static unsigned int ConnectionID = 0;
 
-			m_MeasureConnection = tMeasureConnection(ConnectionID++);
+			m_MeasureConnection = tMeasureConnection(m_ConnectionID = ConnectionID++);
 
-			std::cout << "tServerTCPConnection: " << m_MeasureConnection.ID << '\n';
+			//std::cout << "tServerTCPConnection: " << m_MeasureConnection.ID << '\n';
 		}
 
 	public:
@@ -44,7 +48,7 @@ class tServerTCP : public boost::enable_shared_from_this<tServerTCP>
 		{
 			m_Socket.close();
 
-			std::cout << "~tServerTCPConnection: " << m_MeasureConnection.ID << '\n';
+			//std::cout << "~tServerTCPConnection: " << m_MeasureConnection.ID << '\n';
 		}
 
 		static tPointer Create(boost::asio::io_context& io_context, tServerTCP::tPointer server)
@@ -67,7 +71,7 @@ class tServerTCP : public boost::enable_shared_from_this<tServerTCP>
 					boost::asio::placeholders::bytes_transferred));
 		}
 
-		void Send(const tVectorUInt8&& data)
+		void Send(const tVectorUInt8&& data)//[TBD]shall be async
 		{
 			size_t Bytes = m_Socket.write_some(boost::asio::buffer(data));
 
@@ -101,19 +105,35 @@ public:
 		m_Acceptor.async_accept(Connection->socket(), boost::bind(&tServerTCP::HandleAccept, this, Connection, boost::asio::placeholders::error));
 	}
 
-	void Send(const tVectorUInt8&& data)
-	{
-	}
-
-	void DisplayConnections()
+	void Send(const unsigned int connectionID, const tVectorUInt8&& data)
 	{
 		std::lock_guard<std::mutex> Mtx(m_ConnectionsMtx);
 
 		for (auto& i : m_Connections)
 		{
-			std::cout << " " << i->m_MeasureConnection << '\n';
-			//std::cout << " " << i->m_MeasureConnection.ID << " " << (i->socket().is_open() ? "open" : "closed") << '\n';
+			if (connectionID == i->m_ConnectionID)
+			{
+				i->Send(std::forward<const tVectorUInt8>(data));
+
+				break;
+			}
 		}
+	}
+
+	std::vector<tMeasureConnection> GetMeasureConnection()
+	{
+		std::vector<tMeasureConnection> MeasureConnection;
+
+		std::lock_guard<std::mutex> Mtx(m_ConnectionsMtx);
+
+		MeasureConnection.reserve(m_Connections.size());
+
+		for (auto& i : m_Connections)
+		{
+			MeasureConnection.push_back(i->m_MeasureConnection);
+		}
+
+		return MeasureConnection;
 	}
 
 private:
@@ -152,8 +172,8 @@ private:
 	}
 
 protected:
-	//virtual void OnConnected(tIConnection* connection) = 0;
-	//virtual void OnDisconnected(const tVectorUInt8&& data) = 0;
-	virtual void OnReceived(const tVectorUInt8&& data) = 0;
+	//virtual void OnConnected(const unsigned int connectionID) = 0;
+	//virtual void OnDisconnected(const unsigned int connectionID) = 0;
+	virtual void OnReceived(const unsigned int connectionID, const tVectorUInt8&& data) = 0;
 };
 ///////////////////////////////////////////////////////////////////////////////////////////////////

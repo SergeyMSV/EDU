@@ -4,6 +4,8 @@
 
 struct tMsgBNTBX0802Cmd
 {
+	enum { ID = 0x08, VER = 0x02 };
+
 	unsigned char CheckID;
 
 	explicit tMsgBNTBX0802Cmd(unsigned char checkID)
@@ -37,6 +39,8 @@ struct tMsgBNTBX0802Cmd
 
 struct tMsgBNTBX0802Rsp
 {
+	enum { ID = 0x08, VER = 0x02 };
+
 	unsigned char CERR;
 
 	explicit tMsgBNTBX0802Rsp(unsigned char cerr)

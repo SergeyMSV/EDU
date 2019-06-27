@@ -23,9 +23,9 @@ int main(int argc, char* argv[])
 
 					std::cin >> Cmd;
 
-					if (Cmd == "sockets")
+					if (Cmd == "s")//Cmd == "sockets")
 					{
-						BM.DisplayConnections();//[TBD]Thread-safe
+						BM.DisplayConnections();//Thread-safe
 					}
 				}
 			});//[TBD]Close thread correctly

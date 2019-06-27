@@ -132,11 +132,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Measure.cpp" />
     <ClCompile Include="ServerTCP.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Benchmark.h" />
     <ClInclude Include="Lib\utilsCRC.h" />
+    <ClInclude Include="Measure.h" />
     <ClInclude Include="Packet.h" />
     <ClInclude Include="PacketBNTBX2.h" />
     <ClInclude Include="PacketBNTBX2_Msg0802.h" />

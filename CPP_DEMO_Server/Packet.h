@@ -85,6 +85,8 @@ public:
 	template <class tMsg>
 	void SetMsg(const tMsg& msg)
 	{
+		tFormat<tPayload>::SetPayload(msg);
+
 		tPayload::Data = msg.ToVector();
 	}
 
@@ -106,6 +108,8 @@ public:
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 struct tPayload
 {
+	enum { ID = 0x00, VER = 0x00 };
+
 	tVectorUInt8 Data;
 
 	tPayload() { }

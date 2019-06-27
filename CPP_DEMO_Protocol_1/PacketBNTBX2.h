@@ -38,6 +38,13 @@ public:
 	unsigned char GetMsgVER() { return MsgVER; }
 
 protected:
+	template <class tMsg>
+	void SetPayload(const tMsg& msg)
+	{
+		MsgID = static_cast<tMsgID>(tMsg::ID);
+		MsgVER = static_cast<unsigned char>(tMsg::VER);
+	}
+
 	static tVectorUInt8 TestPacket(tVectorUInt8::const_iterator cbegin, tVectorUInt8::const_iterator cend)
 	{
 		size_t Size = std::distance(cbegin, cend);

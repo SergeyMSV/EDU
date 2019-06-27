@@ -4,9 +4,9 @@ void tServerTCP::tServerTCPConnection::HandleRead(const boost::system::error_cod
 {
 	if (!error)
 	{
-		m_Server.get()->OnReceived(tVectorUInt8(m_ReceivedData.begin(), m_ReceivedData.begin() + bytes_transferred));
+		m_Server->OnReceived(m_ConnectionID, tVectorUInt8(m_ReceivedData.begin(), m_ReceivedData.begin() + bytes_transferred));
 
-		m_MeasureConnection.AddByteQtySent(bytes_transferred);
+		m_MeasureConnection.AddByteQtyReceived(bytes_transferred);
 
 		Start();
 	}
@@ -16,6 +16,6 @@ void tServerTCP::tServerTCPConnection::HandleRead(const boost::system::error_cod
 
 		m_MeasureConnection.Closed();
 
-		m_Server.get()->HandleBreak(shared_from_this(), error);
+		m_Server->HandleBreak(shared_from_this(), error);
 	}
 }
