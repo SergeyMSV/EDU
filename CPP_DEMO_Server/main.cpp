@@ -7,8 +7,6 @@
 
 int main(int argc, char* argv[])
 {
-	std::vector<unsigned int> ListedDevices{ 0x01000001,0x01000004,0x01000005,0x01000008 };
-
 	try
 	{
 		boost::asio::io_context IO_Context;
@@ -27,10 +25,30 @@ int main(int argc, char* argv[])
 					{
 						BM.DisplayConnections();//Thread-safe
 					}
+					else if (Cmd == "exit")
+					{
+						IO_Context.stop();
+
+						return;
+					}
 				}
-			});//[TBD]Close thread correctly
+			});
+
+		std::thread Thread_1([&]()
+			{
+				IO_Context.run();
+			});
+
+		std::thread Thread_2([&]()
+			{
+				IO_Context.run();
+			});
 
 		IO_Context.run();
+
+		ThreadConsole.join();
+		Thread_1.join();
+		Thread_2.join();
 	}
 	catch (std::exception& ex)
 	{
