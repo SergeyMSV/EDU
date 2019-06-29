@@ -8,7 +8,7 @@ std::ostream& operator<< (std::ostream& out, const tMeasureConnection& measureCo
 	tm TimeinfoStart;
 	localtime_s(&TimeinfoStart, &TimeStart);
 
-	out << measureConnection.ID << " "
+	out << std::setw(2) << std::setfill(' ') << measureConnection.ID << " "
 		<< (measureConnection.Open ? "open  " : "closed") << " "
 		<< std::setw(2) << std::setfill('0') << TimeinfoStart.tm_hour << '.'
 		<< std::setw(2) << std::setfill('0') << TimeinfoStart.tm_min << ':'

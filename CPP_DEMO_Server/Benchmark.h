@@ -150,8 +150,36 @@ private:
 		}
 	}
 
-	//virtual void Send(const tVectorUInt8&& data) override
-	//{
-	//	//Se
-	//}
+public:
+	std::ostream& operator<< (std::ostream& out)
+	{
+		std::vector<tMeasureConnection> MeasureConnection = m_Server->GetMeasureConnection();
+
+		for (auto& i : MeasureConnection)
+		{
+			out << " " << i << '\n';
+		}
+
+		return out;
+	}
+
+	//friend std::ostream& operator<< (std::ostream& out, const tBenchmark<tServer>& bm);
 };
+
+//template <class tServer>
+//inline std::ostream& operator<< (std::ostream& out, const tBenchmark<tServer>& bm)
+//{
+//	//std::time_t TimeStart = std::chrono::system_clock::to_time_t(measureConnection.TimePointStart);
+//
+//	//tm TimeinfoStart;
+//	//localtime_s(&TimeinfoStart, &TimeStart);
+//
+//	std::vector<tMeasureConnection> MeasureConnection;// = bm.m_Server->GetMeasureConnection();
+//
+//	for (auto& i : MeasureConnection)
+//	{
+//		out << " " << i << '\n';
+//	}
+//
+//	return out;
+//}

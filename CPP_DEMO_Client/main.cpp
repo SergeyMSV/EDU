@@ -3,6 +3,8 @@
 #include "PacketBNTBX2.h"
 #include "PacketBNTBX2_Msg0802.h"
 
+#include <boost/array.hpp>//TEST
+
 int main()
 {
 	using boost::asio::ip::tcp;
@@ -34,6 +36,16 @@ int main()
 					tVectorUInt8 PacketVector = Packet.ToVector();
 
 					Socket.send(boost::asio::buffer(PacketVector));
+
+					/////////////////
+					//boost::array<char, 128> buf;
+
+					//boost::system::error_code error;
+
+					//size_t len = Socket.read_some(boost::asio::buffer(buf), error);
+
+					//std::cout << " Received: " << len << '\n';
+					//////////////////
 
 					boost::asio::steady_timer Timer(IO_Context, boost::asio::chrono::seconds(1));
 

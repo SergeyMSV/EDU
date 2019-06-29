@@ -14,6 +14,8 @@ public:
 	virtual void shutdown()
 	{
 	}
+
+	//virtual void notify_fork(boost::asio::execution_context::fork_event event) { }
 };
 
 boost::asio::execution_context::id tService_1::id;

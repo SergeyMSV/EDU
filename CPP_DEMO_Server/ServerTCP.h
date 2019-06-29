@@ -27,7 +27,10 @@ class tServerTCP : public boost::enable_shared_from_this<tServerTCP>
 
 		tcp::socket m_Socket;
 
-		tVectorUInt8 m_ReceivedData = tVectorUInt8(4096);
+		tVectorUInt8 m_DataReceived = tVectorUInt8(4096);
+
+		std::deque<tVectorUInt8> m_DataSend;
+		tVectorUInt8 m_DataSendInProgress;
 
 		tServerTCP::tPointer m_Server;
 
@@ -64,22 +67,33 @@ class tServerTCP : public boost::enable_shared_from_this<tServerTCP>
 		void Start()
 		{
 			m_Socket.async_read_some(
-				boost::asio::buffer(m_ReceivedData),
+				boost::asio::buffer(m_DataReceived),
 				boost::bind(
 					&tServerTCPConnection::HandleRead, shared_from_this(),
 					boost::asio::placeholders::error,
 					boost::asio::placeholders::bytes_transferred));
 		}
 
-		void Send(const tVectorUInt8&& data)//[TBD]shall be async
+		void Send(const tVectorUInt8&& data)
 		{
-			size_t Bytes = m_Socket.write_some(boost::asio::buffer(data));
-
-			m_MeasureConnection.AddByteQtySent(Bytes);
+			//if (m_DataSend.size() < 10)//TEST Queue
+			if (m_DataSendInProgress.size() > 0)
+			{
+				m_DataSend.push_back(std::forward<const tVectorUInt8>(data));
+			}
+			else
+			{
+				AsyncWrite(std::forward<const tVectorUInt8>(data));
+			}
 		}
 
 	private:
 		void HandleRead(const boost::system::error_code& error, size_t bytes_transferred);
+		void HandleWrite(const boost::system::error_code& error, size_t bytes_transferred);
+
+		void AsyncWrite(const tVectorUInt8&& data);
+
+		void HandleBreak(const boost::system::error_code& error);
 	};
 
 	friend tServerTCPConnection;

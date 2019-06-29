@@ -5,6 +5,19 @@
 #include "Benchmark.h"
 #include "ServerTCP.h"
 
+void print(const boost::system::error_code& error, boost::asio::steady_timer* timer, tBenchmark<tServerTCP>* bm)
+{
+	system("cls");
+
+	//std::cout << 
+		(*bm).operator<<(std::cout);
+	//bm->DisplayConnections();
+
+	timer->expires_at(timer->expiry() + boost::asio::chrono::seconds(1));
+
+	timer->async_wait(boost::bind(print, boost::asio::placeholders::error, timer, bm));
+}
+
 int main(int argc, char* argv[])
 {
 	try
@@ -12,6 +25,10 @@ int main(int argc, char* argv[])
 		boost::asio::io_context IO_Context;
 
 		tBenchmark<tServerTCP> BM(IO_Context);
+
+		boost::asio::steady_timer PrintTimer(IO_Context, boost::asio::chrono::seconds(1));
+
+		PrintTimer.async_wait(boost::bind(print, boost::asio::placeholders::error, &PrintTimer, &BM));
 
 		std::thread ThreadConsole([&]()
 			{
