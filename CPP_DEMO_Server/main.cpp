@@ -1,3 +1,5 @@
+//#define BOOST_ASIO_ENABLE_HANDLER_TRACKING
+
 #include <boost/asio.hpp>
 #include <vector>
 #include <iostream>
@@ -9,8 +11,9 @@ void print(const boost::system::error_code& error, boost::asio::steady_timer* ti
 {
 	system("cls");
 
-	//std::cout << 
-		(*bm).operator<<(std::cout);
+	//std::cout << *bm<<"";
+	*bm << std::cout;
+		//(*bm).operator<<(std::cout);
 	//bm->DisplayConnections();
 
 	timer->expires_at(timer->expiry() + boost::asio::chrono::seconds(1));
