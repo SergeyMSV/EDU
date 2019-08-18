@@ -19,17 +19,14 @@
     <ClCompile Include="PacketBNTBX2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PacketStar.cpp">
+    <ClCompile Include="PacketStar2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PacketStar2.cpp">
+    <ClCompile Include="PacketStar_Test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Packet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PacketBNTBX2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -44,6 +41,15 @@
     </ClInclude>
     <ClInclude Include="Lib\utilsCRC.h">
       <Filter>Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\utilsPacket.h">
+      <Filter>Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\utilsBase.h">
+      <Filter>Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketStar_SIMPLE.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

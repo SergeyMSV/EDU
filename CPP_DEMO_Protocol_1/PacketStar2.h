@@ -2,8 +2,8 @@
 
 #include "PacketStar.h"
 
-template <class tPayload>
-struct tFormatStar2 : public tFormatStar<tPayload>
+template <class TPayload>
+struct tFormatStar2 : public tFormatStar<TPayload>
 {
 	typedef unsigned char tMsgID;
 
@@ -39,7 +39,7 @@ protected:
 		return tVectorUInt8();
 	}
 
-	static bool TryParse(const tVectorUInt8& packetVector, tFormatStar2& format, tPayload& payload)
+	static bool TryParse(const tVectorUInt8& packetVector, tFormatStar2& format, TPayload& payload)
 	{
 		if (packetVector.size() >= GetSize(0) && packetVector[0] == tFormatStar2::STX)
 		{
@@ -63,7 +63,7 @@ protected:
 				CBegin = CEnd;
 				CEnd += DataSize - 1;//-MsgID
 
-				payload = tPayload(CBegin, CEnd);
+				payload = TPayload(CBegin, CEnd);
 
 				return true;
 			}
@@ -72,21 +72,21 @@ protected:
 		return false;
 	}
 
-	static size_t GetSize(size_t payloadSize) { return tFormatStar<tPayload>::GetSize(payloadSize) + 1; };
+	static size_t GetSize(size_t payloadSize) { return tFormatStar<TPayload>::GetSize(payloadSize) + 1; };
 
-	void Append(tVectorUInt8& dst, const tPayload& payload) const
+	void Append(tVectorUInt8& dst, const TPayload& payload) const
 	{
 		unsigned short CRC = 0x0304;//[TBD]
 
 		dst.push_back(tFormatStar2::STX);
 
-		::Append(dst, static_cast<unsigned short>(payload.GetSize() + 1));
-		::Append(dst, MsgID);
+		utils::Append(dst, static_cast<unsigned short>(payload.GetSize() + 1));
+		utils::Append(dst, MsgID);
 
 		payload.Append(dst);
 
-		::Append(dst, CRC);
+		utils::Append(dst, CRC);
 	}
 };
 
-typedef tPacket<tFormatStar2, tPayload> tPacketStar2;
+typedef utils::tPacket<tFormatStar2, utils::tPayloadSIMPLE> tPacketStar2;

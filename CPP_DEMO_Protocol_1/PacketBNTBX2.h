@@ -8,11 +8,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-#include "Packet.h"
-
 #include <utilsCRC.h>
+#include <utilsPacket.h>
 
-template <class tPayload>
+template <class TPayload>
 struct tFormatBNTBX2
 {
 	static const unsigned char STX = 0x5F;
@@ -77,7 +76,7 @@ protected:
 		return tVectorUInt8();
 	}
 
-	static bool TryParse(const tVectorUInt8& packetVector, tFormatBNTBX2& format, tPayload& payload)
+	static bool TryParse(const tVectorUInt8& packetVector, tFormatBNTBX2& format, TPayload& payload)
 	{
 		if (packetVector.size() >= GetSize(0) && packetVector[0] == STX)
 		{
@@ -116,7 +115,7 @@ protected:
 					CBegin = CEnd;
 					CEnd += PayloadSize;
 
-					payload = tPayload(CBegin, CEnd);
+					payload = TPayload(CBegin, CEnd);
 
 					return true;
 				}
@@ -128,23 +127,23 @@ protected:
 
 	static size_t GetSize(size_t payloadSize) { return 11 + payloadSize; };
 
-	void Append(tVectorUInt8& dst, const tPayload& payload) const
+	void Append(tVectorUInt8& dst, const TPayload& payload) const
 	{
 		dst.push_back(STX);
 
-		::Append(dst, DeviceID);
+		utils::Append(dst, DeviceID);
 
 		dst.push_back(static_cast<tUInt8>(MsgID));
 		dst.push_back(MsgVER);
 
-		::Append(dst, static_cast<unsigned short>(payload.GetSize()));
+		utils::Append(dst, static_cast<unsigned short>(payload.GetSize()));
 
 		payload.Append(dst);
 
 		unsigned short CRC = utils::crc::CRC16_BNTBX2(dst.cbegin() + 1, dst.cend());
 
-		::Append(dst, CRC);
+		utils::Append(dst, CRC);
 	}
 };
 
-typedef tPacket<tFormatBNTBX2, tPayload> tPacketBNTBX2;
+typedef utils::tPacket<tFormatBNTBX2, utils::tPayloadSIMPLE> tPacketBNTBX2;

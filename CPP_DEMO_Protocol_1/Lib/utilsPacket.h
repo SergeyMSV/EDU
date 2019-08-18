@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// Packet.h
+// utilsPacket.h
 //
 // |   version  |    release    | Description
 // |------------|---------------|---------------------------------
@@ -8,19 +8,12 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-#include <exception>
-#include <vector>
-///////////////////////////////////////////////////////////////////////////////////////////////////
-typedef unsigned char tUInt8;
-typedef std::vector<tUInt8> tVectorUInt8;
-///////////////////////////////////////////////////////////////////////////////////////////////////
-template<typename T>
-inline typename std::enable_if<std::is_trivially_copyable<T>::value, void>::type Append(tVectorUInt8& dst, const T& value)
-{
-	const unsigned char* Begin = reinterpret_cast<const tUInt8*>(&value);
+#include "utilsBase.h"
 
-	dst.insert<const tUInt8*>(dst.end(), Begin, Begin + sizeof(value));
-}
+#include <exception>
+
+namespace utils
+{
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 //[TBD]Exceptions
@@ -28,10 +21,10 @@ inline typename std::enable_if<std::is_trivially_copyable<T>::value, void>::type
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 template
 <
-	template <class> class tFormat,
-	class tPayload
+	template <class> class TFormat,
+	class TPayload
 >
-class tPacket : public tFormat<tPayload>, tPayload
+class tPacket : public TFormat<TPayload>, TPayload
 {
 public:
 	tPacket() { }
@@ -42,14 +35,14 @@ public:
 
 		for (;;)
 		{
-			Begin = std::find(Begin, receivedData.cend(), tFormat<tPayload>::STX);
+			Begin = std::find(Begin, receivedData.cend(), TFormat<TPayload>::STX);
 
 			if (Begin == receivedData.cend())
 			{
 				break;
 			}
 
-			tVectorUInt8 PacketVector = tFormat<tPayload>::TestPacket(Begin, receivedData.cend());
+			tVectorUInt8 PacketVector = TFormat<TPayload>::TestPacket(Begin, receivedData.cend());
 
 			if (PacketVector.size() > 0)
 			{
@@ -73,48 +66,48 @@ public:
 
 	static bool TryParse(const tVectorUInt8& packetVector, tPacket& packet)
 	{
-		return tFormat<tPayload>::TryParse(packetVector, packet, packet);
+		return TFormat<TPayload>::TryParse(packetVector, packet, packet);
 	}
 
 	template <class tMsg>
 	tMsg GetMsg() const
 	{
-		return tMsg(tPayload::Data);
+		return tMsg(TPayload::Data);
 	}
 
 	template <class tMsg>
 	void SetMsg(const tMsg& msg)
 	{
-		tFormat<tPayload>::SetPayload(msg);
+		TFormat<TPayload>::SetPayload(msg);
 
-		tPayload::Data = msg.ToVector();
+		TPayload::Data = msg.ToVector();
 	}
 
 	tVectorUInt8 ToVector()
 	{
-		size_t PayloadSize = tPayload::GetSize();
+		size_t PayloadSize = TPayload::GetSize();
 
-		size_t PacketSize = tFormat<tPayload>::GetSize(PayloadSize);
+		size_t PacketSize = TFormat<TPayload>::GetSize(PayloadSize);
 
 		tVectorUInt8 PacketVector;
 
 		PacketVector.reserve(PacketSize);
 
-		tFormat<tPayload>::Append(PacketVector, *this);
+		TFormat<TPayload>::Append(PacketVector, *this);
 
 		return PacketVector;
 	}
 };
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-struct tPayload
+struct tPayloadSIMPLE
 {
 	enum { ID = 0x00, VER = 0x00 };
 
 	tVectorUInt8 Data;
 
-	tPayload() { }
+	tPayloadSIMPLE() { }
 
-	tPayload(tVectorUInt8::const_iterator cbegin, tVectorUInt8::const_iterator cend)
+	tPayloadSIMPLE(tVectorUInt8::const_iterator cbegin, tVectorUInt8::const_iterator cend)
 	{
 		Data.insert(Data.end(), cbegin, cend);
 	}
@@ -127,3 +120,4 @@ struct tPayload
 	}
 };
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+}

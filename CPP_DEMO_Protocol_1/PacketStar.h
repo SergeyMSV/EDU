@@ -1,10 +1,24 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// utilsPacketStar
+//
+//[STX='*' 1-Byte][PayloadSize 2-Bytes LittleEndian][Payload up to 1024-Bytes][CRC16 CCITT 2-Bytes (PayloadSize and Payload, except STX) LittleEndian]
+//
+// |   version  |    release    | Description
+// |------------|---------------|---------------------------------
+// |      1     |   2015 07 17  |
+// |     ...    |               | 
+// |            |               | 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-#include "Packet.h"
+#include <utilsCRC.h>
+#include <utilsPacket.h>
 
-template <class tPayload>
+template <class TPayload>
 struct tFormatStar
 {
+	using tFieldDataSize = unsigned short;
+
 	static const unsigned char STX = '*';
 
 	//STX         => 1B
@@ -18,18 +32,15 @@ protected:
 
 		if (Size >= GetSize(0) && *cbegin == STX)
 		{
-			unsigned short DataSize = 0;
+			tFieldDataSize DataSize = 0;
 
-			tVectorUInt8::const_iterator CBegin = cbegin + 1;
-			tVectorUInt8::const_iterator CEnd = CBegin + sizeof(DataSize);
+			tVectorUInt8::const_iterator Begin = cbegin + 1;
+			tVectorUInt8::const_iterator End = Begin + sizeof(tFieldDataSize);
 
-			std::copy(CBegin, CEnd, reinterpret_cast<tUInt8*>(&DataSize));
+			std::copy(Begin, End, reinterpret_cast<tUInt8*>(&DataSize));
 
-			if (Size >= GetSize(DataSize))
+			if (Size >= GetSize(DataSize) && VerifyCRC(Begin, sizeof(tFieldDataSize) + DataSize))
 			{
-				//Get CRC
-				//if (CheckCRC(packetVector))
-
 				return tVectorUInt8(cbegin, cbegin + GetSize(DataSize));
 			}
 		}
@@ -37,26 +48,23 @@ protected:
 		return tVectorUInt8();
 	}
 
-	static bool TryParse(const tVectorUInt8& packetVector, tFormatStar& format, tPayload& payload)
+	static bool TryParse(const tVectorUInt8& packetVector, tFormatStar& format, TPayload& payload)
 	{
 		if (packetVector.size() >= GetSize(0) && packetVector[0] == STX)
 		{
-			unsigned short DataSize = 0;
+			tFieldDataSize DataSize = 0;
 
-			tVectorUInt8::const_iterator CBegin = packetVector.cbegin() + 1;
-			tVectorUInt8::const_iterator CEnd = CBegin + sizeof(DataSize);
+			tVectorUInt8::const_iterator Begin = packetVector.cbegin() + 1;
+			tVectorUInt8::const_iterator End = Begin + sizeof(tFieldDataSize);
 
-			std::copy(CBegin, CEnd, reinterpret_cast<tUInt8*>(&DataSize));
+			std::copy(Begin, End, reinterpret_cast<tUInt8*>(&DataSize));
 
-			if (packetVector.size() == GetSize(DataSize))
+			if (packetVector.size() == GetSize(DataSize) && VerifyCRC(Begin, sizeof(tFieldDataSize) + DataSize))
 			{
-				//Get CRC
-				//if (CheckCRC(packetVector))
+				Begin = End;
+				End += DataSize;
 
-				CBegin = CEnd;
-				CEnd += DataSize;
-
-				payload = tPayload(CBegin, CEnd);
+				payload = TPayload(Begin, End);
 
 				return true;
 			}
@@ -67,18 +75,30 @@ protected:
 
 	static size_t GetSize(size_t payloadSize) { return 5 + payloadSize; };
 
-	void Append(tVectorUInt8& dst, const tPayload& payload) const
+	void Append(tVectorUInt8& dst, const TPayload& payload) const
 	{
-		unsigned short CRC = 0x0304;//[TBD]
-
 		dst.push_back(STX);
 
-		::Append(dst, static_cast<unsigned short>(payload.GetSize()));
+		tVectorUInt8::const_iterator CRCBegin = dst.end() - 1;
+
+		utils::Append(dst, static_cast<unsigned short>(payload.GetSize()));
 
 		payload.Append(dst);
 
-		::Append(dst, CRC);
+		unsigned short CRC = utils::crc::CRC16_CCITT<tVectorUInt8::const_iterator>(CRCBegin + 1, dst.end());
+
+		utils::Append(dst, CRC);
+	}
+
+private:
+	static bool VerifyCRC(tVectorUInt8::const_iterator begin, size_t crcDataSize)
+	{
+		auto CRC = utils::crc::CRC16_CCITT(begin, begin + crcDataSize);
+
+		tVectorUInt8::const_iterator CRCBegin = begin + crcDataSize;
+
+		auto CRCReceived = utils::Read<unsigned short>(CRCBegin, CRCBegin + sizeof(CRC));
+
+		return CRC == CRCReceived;
 	}
 };
-
-typedef tPacket<tFormatStar, tPayload> tPacketStar;

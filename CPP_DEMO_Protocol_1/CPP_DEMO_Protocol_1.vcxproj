@@ -89,6 +89,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>Lib;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,16 +130,18 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PacketBNTBX2.cpp" />
-    <ClCompile Include="PacketStar.cpp" />
+    <ClCompile Include="PacketStar_Test.cpp" />
     <ClCompile Include="PacketStar2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Lib\utilsBase.h" />
     <ClInclude Include="Lib\utilsCRC.h" />
-    <ClInclude Include="Packet.h" />
+    <ClInclude Include="Lib\utilsPacket.h" />
     <ClInclude Include="PacketBNTBX2.h" />
     <ClInclude Include="PacketBNTBX2_Msg0802.h" />
     <ClInclude Include="PacketStar.h" />
     <ClInclude Include="PacketStar2.h" />
+    <ClInclude Include="PacketStar_SIMPLE.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -22,5 +22,7 @@ typedef std::vector<unsigned char> tVectorUInt8;
 template<typename T>//[TBD]Check that T is a value-type containing no iterators.
 inline void Append(tVectorUInt8& dst, const T& value)
 {
-	dst.insert(dst.end(), (unsigned char*)& value, ((unsigned char*)& value) + sizeof(value));
+	const char* Begin = reinterpret_cast<const char*>(&value);
+
+	dst.insert(dst.end(), Begin, Begin + sizeof(value));
 }
