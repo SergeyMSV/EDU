@@ -17,7 +17,7 @@
 template <class TPayload>
 struct tFormatStar
 {
-	using tFieldDataSize = unsigned short;
+	typedef unsigned short tFieldDataSize;
 
 	static const unsigned char STX = '*';
 
@@ -73,7 +73,7 @@ protected:
 		return false;
 	}
 
-	static size_t GetSize(size_t payloadSize) { return 5 + payloadSize; };
+	static size_t GetSize(size_t payloadSize) { return sizeof(STX) + sizeof(tFieldDataSize) + payloadSize + 2; };
 
 	void Append(tVectorUInt8& dst, const TPayload& payload) const
 	{
