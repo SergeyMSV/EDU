@@ -1,5 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// Packet.h
+// utilsPacketBNTBX2
+//
+// Standard ISO/IEC 114882, C++98
 //
 // |   version  |    release    | Description
 // |------------|---------------|---------------------------------
@@ -8,8 +10,13 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-#include <utilsCRC.h>
-#include <utilsPacket.h>
+#include "utilsCRC.h"
+#include "utilsPacket.h"
+
+namespace utils
+{
+	namespace packet_bntbx
+	{
 
 template <class TPayload>
 struct tFormatBNTBX2
@@ -146,4 +153,5 @@ protected:
 	}
 };
 
-typedef utils::tPacket<tFormatBNTBX2, utils::tPayloadSIMPLE> tPacketBNTBX2;
+	}
+}

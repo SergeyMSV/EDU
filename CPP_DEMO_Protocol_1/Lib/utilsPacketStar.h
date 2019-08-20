@@ -3,16 +3,24 @@
 //
 //[STX='*' 1-Byte][PayloadSize 2-Bytes LittleEndian][Payload up to 1024-Bytes][CRC16 CCITT 2-Bytes (PayloadSize and Payload, except STX) LittleEndian]
 //
+// Standard ISO/IEC 114882, C++98
+//
 // |   version  |    release    | Description
 // |------------|---------------|---------------------------------
 // |      1     |   2015 07 17  |
 // |     ...    |               | 
+// |     16     |   2019 08 20  |
 // |            |               | 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-#include <utilsCRC.h>
-#include <utilsPacket.h>
+#include "utilsCRC.h"
+#include "utilsPacket.h"
+
+namespace utils
+{
+	namespace packet_star
+	{
 
 template <class TPayload>
 struct tFormatStar
@@ -20,10 +28,6 @@ struct tFormatStar
 	typedef unsigned short tFieldDataSize;
 
 	static const unsigned char STX = '*';
-
-	//STX         => 1B
-	//PayloadSize => 2B
-	//CRC         => 2B
 
 protected:
 	static tVectorUInt8 TestPacket(tVectorUInt8::const_iterator cbegin, tVectorUInt8::const_iterator cend)
@@ -102,3 +106,6 @@ private:
 		return CRC == CRCReceived;
 	}
 };
+
+	}
+}

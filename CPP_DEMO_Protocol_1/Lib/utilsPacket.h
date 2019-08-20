@@ -1,6 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // utilsPacket.h
 //
+// Standard ISO/IEC 114882, C++98
+//
 // |   version  |    release    | Description
 // |------------|---------------|---------------------------------
 // |      1     |   2019 06 20  |
@@ -10,14 +12,10 @@
 
 #include "utilsBase.h"
 
-#include <exception>
-
 namespace utils
 {
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-//[TBD]Exceptions
-
+	namespace packet
+	{
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 template
 <
@@ -99,15 +97,15 @@ public:
 	}
 };
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-struct tPayloadSIMPLE
+struct tPayloadCommon
 {
 	enum { ID = 0x00, VER = 0x00 };
 
 	tVectorUInt8 Data;
 
-	tPayloadSIMPLE() { }
+	tPayloadCommon() { }
 
-	tPayloadSIMPLE(tVectorUInt8::const_iterator cbegin, tVectorUInt8::const_iterator cend)
+	tPayloadCommon(tVectorUInt8::const_iterator cbegin, tVectorUInt8::const_iterator cend)
 	{
 		Data.insert(Data.end(), cbegin, cend);
 	}
@@ -120,4 +118,5 @@ struct tPayloadSIMPLE
 	}
 };
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+	}
 }

@@ -137,11 +137,13 @@
     <ClInclude Include="Lib\utilsBase.h" />
     <ClInclude Include="Lib\utilsCRC.h" />
     <ClInclude Include="Lib\utilsPacket.h" />
-    <ClInclude Include="PacketBNTBX2.h" />
+    <ClInclude Include="Lib\utilsPacketBNTBX2.h" />
+    <ClInclude Include="Lib\utilsPacketStar.h" />
+    <ClInclude Include="Lib\utilsPacketStar2.h" />
+    <ClInclude Include="PacketBNTBX2_Common.h" />
     <ClInclude Include="PacketBNTBX2_Msg0802.h" />
-    <ClInclude Include="PacketStar.h" />
-    <ClInclude Include="PacketStar2.h" />
-    <ClInclude Include="PacketStar_SIMPLE.h" />
+    <ClInclude Include="PacketStar2_Common.h" />
+    <ClInclude Include="PacketStar_Common.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

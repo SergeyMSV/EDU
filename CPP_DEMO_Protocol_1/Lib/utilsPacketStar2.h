@@ -1,6 +1,23 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// utilsPacketStar2
+//
+//[STX='*' 1-Byte][PayloadSize 2-Bytes LittleEndian][Payload up to 1024-Bytes][CRC16 CCITT 2-Bytes (PayloadSize and Payload, except STX) LittleEndian]
+//
+// Standard ISO/IEC 114882, C++98
+//
+// |   version  |    release    | Description
+// |------------|---------------|---------------------------------
+// |      1     |   2019 04 15  |
+// |            |               | 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-#include "PacketStar.h"
+#include "utilsPacketStar.h"
+
+namespace utils
+{
+	namespace packet_star
+	{
 
 template <class TPayload>
 struct tFormatStar2 : public tFormatStar<TPayload>
@@ -89,4 +106,6 @@ protected:
 	}
 };
 
-typedef utils::tPacket<tFormatStar2, utils::tPayloadSIMPLE> tPacketStar2;
+	}
+}
+

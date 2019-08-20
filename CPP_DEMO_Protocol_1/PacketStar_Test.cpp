@@ -1,4 +1,4 @@
-#include "PacketStar_SIMPLE.h"
+#include "PacketStar_Common.h"
 #include <iostream>
 
 void PacketStar()

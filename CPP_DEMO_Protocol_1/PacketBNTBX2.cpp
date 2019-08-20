@@ -1,4 +1,4 @@
-#include "PacketBNTBX2.h"
+#include "PacketBNTBX2_Common.h"
 #include "PacketBNTBX2_Msg0802.h"
 #include <iostream>
 

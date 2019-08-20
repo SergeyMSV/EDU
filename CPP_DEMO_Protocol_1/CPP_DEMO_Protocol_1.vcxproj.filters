@@ -27,15 +27,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PacketBNTBX2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PacketStar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PacketStar2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PacketBNTBX2_Msg0802.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -48,7 +39,22 @@
     <ClInclude Include="Lib\utilsBase.h">
       <Filter>Lib</Filter>
     </ClInclude>
-    <ClInclude Include="PacketStar_SIMPLE.h">
+    <ClInclude Include="PacketStar_Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\utilsPacketBNTBX2.h">
+      <Filter>Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\utilsPacketStar.h">
+      <Filter>Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\utilsPacketStar2.h">
+      <Filter>Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketStar2_Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketBNTBX2_Common.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
