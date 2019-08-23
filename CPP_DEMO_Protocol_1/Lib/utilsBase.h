@@ -10,17 +10,13 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-//#include <exception>
 #include <vector>
 
-//namespace utils
-//{
-///////////////////////////////////////////////////////////////////////////////////////////////////
-typedef unsigned char tUInt8;//[TBD]it shall be inside namespase utils
-typedef std::vector<tUInt8> tVectorUInt8;//[TBD]it shall be inside namespase utils
-///////////////////////////////////////////////////////////////////////////////////////////////////
 namespace utils
 {
+
+typedef unsigned char tUInt8;
+typedef std::vector<tUInt8> tVectorUInt8;
 
 template<typename T>
 typename std::enable_if<std::is_trivially_copyable<T>::value, void>::type Append(tVectorUInt8& dst, const T& value)
@@ -76,4 +72,3 @@ typename std::enable_if<std::is_trivially_copyable<T>::value, T>::type Reverse(T
 }
 
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////

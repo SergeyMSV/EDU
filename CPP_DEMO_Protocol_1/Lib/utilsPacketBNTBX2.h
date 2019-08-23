@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// utilsPacketBNTBX2
+// utilsPacketBNTBX2.h
 //
 // Standard ISO/IEC 114882, C++98
 //
@@ -25,30 +25,37 @@ struct tFormatBNTBX2
 
 	typedef unsigned int tDeviceID;
 
-	enum class tMsgID
+	enum tMsgID
 	{
-		Msg08 = 0x08,
-		Msg09,
+		tMsgID_00 = 0x00,
+		tMsgID_08 = 0x08,
+		tMsgID_09,
 	};
 
+	typedef unsigned char tMsgVER;
+
 private:
-	tDeviceID DeviceID = 0;
-	tMsgID MsgID = tMsgID::Msg09;
-	unsigned char MsgVER = 0;
-	//STX         => 1B
-	//PayloadSize => 2B
-	//CRC         => 2B
+	tDeviceID DeviceID;
+	tMsgID MsgID;
+	tMsgVER MsgVER;
 
 public:
+	tFormatBNTBX2()
+	{
+		DeviceID = 0;
+		MsgID = tMsgID_00;
+		MsgVER = 0;
+	}
+
 	tMsgID GetMsgID() { return MsgID; }
-	unsigned char GetMsgVER() { return MsgVER; }
+	tMsgVER GetMsgVER() { return MsgVER; }
 
 protected:
 	template <class tMsg>
-	void SetPayload(const tMsg& msg)
+	void SetPayloadIDs(const tMsg& msg)
 	{
 		MsgID = static_cast<tMsgID>(tMsg::ID);
-		MsgVER = static_cast<unsigned char>(tMsg::VER);
+		MsgVER = static_cast<tMsgVER>(tMsg::VER);
 	}
 
 	static tVectorUInt8 TestPacket(tVectorUInt8::const_iterator cbegin, tVectorUInt8::const_iterator cend)
@@ -100,7 +107,7 @@ protected:
 			CBegin = CEnd;
 			CEnd += 1;
 
-			format.MsgVER = *CBegin;
+			format.MsgVER = static_cast<tMsgVER>(*CBegin);
 
 			unsigned short PayloadSize = 0;
 
@@ -141,7 +148,7 @@ protected:
 		utils::Append(dst, DeviceID);
 
 		dst.push_back(static_cast<tUInt8>(MsgID));
-		dst.push_back(MsgVER);
+		dst.push_back(static_cast<tUInt8>(MsgVER));
 
 		utils::Append(dst, static_cast<unsigned short>(payload.GetSize()));
 

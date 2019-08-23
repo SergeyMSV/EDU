@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// utilsPacketStar2
+// utilsPacketStar2.h
 //
 //[STX='*' 1-Byte][PayloadSize 2-Bytes LittleEndian][Payload up to 1024-Bytes][CRC16 CCITT 2-Bytes (PayloadSize and Payload, except STX) LittleEndian]
 //
@@ -25,9 +25,14 @@ struct tFormatStar2 : public tFormatStar<TPayload>
 	typedef unsigned char tMsgID;
 
 private:
-	tMsgID MsgID = 0;
+	tMsgID MsgID;
 
 public:
+	tFormatStar2()
+	{
+		MsgID = 0;
+	}
+
 	tMsgID GetMsgID() { return MsgID; }
 
 protected:
@@ -108,4 +113,3 @@ protected:
 
 	}
 }
-

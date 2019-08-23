@@ -76,7 +76,7 @@ public:
 	template <class tMsg>
 	void SetMsg(const tMsg& msg)
 	{
-		TFormat<TPayload>::SetPayload(msg);
+		TFormat<TPayload>::SetPayloadIDs(msg);
 
 		TPayload::Data = msg.ToVector();
 	}
@@ -99,8 +99,6 @@ public:
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 struct tPayloadCommon
 {
-	enum { ID = 0x00, VER = 0x00 };
-
 	tVectorUInt8 Data;
 
 	tPayloadCommon() { }

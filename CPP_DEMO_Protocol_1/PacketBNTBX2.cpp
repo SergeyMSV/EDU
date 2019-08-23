@@ -36,7 +36,7 @@ void PacketBNTBX2()
 
 			switch (Packet.GetMsgID())
 			{
-			case tPacketBNTBX2::tMsgID::Msg08:
+			case tPacketBNTBX2::tMsgID_08:
 			{
 				switch (Packet.GetMsgVER())
 				{
