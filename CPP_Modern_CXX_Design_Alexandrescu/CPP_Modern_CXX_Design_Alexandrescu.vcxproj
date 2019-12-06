@@ -123,7 +123,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Clonable.cpp" />
+    <ClCompile Include="Clonable_2.cpp" />
+    <ClCompile Include="Convertion.cpp" />
+    <ClCompile Include="Int2Type.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Type2Type.cpp" />
     <ClCompile Include="TypeList.cpp" />
   </ItemGroup>
   <ItemGroup>
