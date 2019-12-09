@@ -1,137 +1,57 @@
 #include <iostream>
 
-#include <map>
 #include <vector>
-#include <utility>
 
 namespace test
 {
 
+void UnitTest_ClassOverride();
+void UnitTest_ClassExplicit();
+void UnitTest_ClassMove();
+void UnitTest_ClassVirtual();
+void UnitTest_Const();
+void UnitTest_Exception();
 void UnitTest_Lambda();
-void UnitTest_tClass();
-void UnitTest_tStruct();
+void UnitTest_Lambda2();
+void UnitTest_Mutex();
+void UnitTest_Pointer();
+void UnitTest_Ref();
+void UnitTest_SmartPtr_Shared();
+void UnitTest_SmartPtr_Unique();
+void UnitTest_Static1();
+void UnitTest_Static2();
+void UnitTest_Static3();
+void UnitTest_Struct();
+void UnitTest_Thread();
+void UnitTest_Type();
 
-}
-
-template<typename T, typename E>
-auto Compose(T a, E b) -> decltype(a + b)
-{
-	return a + b;
 }
 
 int main()
 {
-	test::UnitTest_Lambda();
-	test::UnitTest_tClass();
-	test::UnitTest_tStruct();
+	using namespace test;
+
+	/*UnitTest_ClassOverride();
+	UnitTest_ClassExplicit();
+	UnitTest_ClassMove();*/
+	UnitTest_ClassVirtual();
+	/*UnitTest_Const();
+	UnitTest_Exception();*/
+	UnitTest_Lambda();
+	UnitTest_Lambda2();
+	/*UnitTest_Mutex();
+	UnitTest_Pointer();
+	UnitTest_Ref();*/
+	UnitTest_SmartPtr_Shared();
+	UnitTest_SmartPtr_Unique();
+/*	UnitTest_Static1();
+	UnitTest_Static2();
+	UnitTest_Static3();
+	UnitTest_Struct();
+	UnitTest_Thread();
+	UnitTest_Type();
 
     std::cout << "Hello World!\n";
-
-	for (auto i = 0; i < 10; i++)
-	{
-		std::cout << "Preved: " << i << "\n";
-	}
-
-	{
-		std::string Str = "asd";
-
-		auto AutoS = Str;
-
-		std::cout << AutoS << std::endl;
-	}
-
-	{
-		unsigned int A = 10;
-
-		decltype(A) A1;
-
-		A1 = 23;
-
-		std::string B = "asfdasfd";
-
-		decltype(B) B1;
-
-		B1 = "zxcv";
-
-		unsigned int C = 234;
-
-		decltype(A + C) AC1;
-
-		double D = 324.99;
-
-		decltype(A + D) AD1;
-	}
-
-	{
-		std::vector<int> Vector(10);
-
-		int Index = 0;
-
-		for (auto& i : Vector)
-		{
-			i = ++Index;
-		}
-	}
-
-	{
-		auto C = Compose(2, 3.14); // C -double
-
-		std::cout << C << std::endl;
-	}
-
-	{
-		std::map<int, std::string> Map;
-		Map[1] = "qwe";
-		Map[2] = "asd";
-		Map[1] = "xxc";
-
-		std::string Str = Map.at(2);
-	}
-
-	{
-		int Array[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
-	}
-
-	{
-		std::vector<std::pair<int, std::string>> Vector{ {1, "234"}, {2, "qwer"}, {0, "wert"} };
-
-		for (auto i = Vector.begin(); i != Vector.end(); ++i)
-		{
-			std::cout << "Medved: " << i->first << " " << i->second << "\n";
-		}
-	}
-
-	{
-		std::vector<int> Vector{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
-
-		Vector.reserve(30);
-
-		Vector.insert(Vector.end(), { 21, 22, 23, 24, 25, 26, 27, 28, 29, 20 });
-
-		for (auto i : Vector)
-		{
-			std::cout << "for each: " << i << "\n";
-		}
-
-		for (auto& i : Vector)
-		{
-			std::cout << "for each: " << i << "\n";
-		}
-	}
-
-	{
-		std::vector<std::pair<int, std::string>> Vector{ {1, "qwe"}, {2, "rty"}, {3, "uio"}, {2, "p[]"} };
-
-		for (auto i : Vector)
-		{
-			std::cout << "for each: " << i.first << " " << i.second << "\n";
-		}
-
-		for (const auto& i : Vector)
-		{
-			std::cout << "for each: " << i.first << " " << i.second << "\n";
-		}
-	}
 
 	{
 		int A = 0;
@@ -140,5 +60,18 @@ int main()
 
 		std::fill(Vector.begin(), Vector.end(), nullptr);
 	}
+	
+	{
+		int A = 1'000'000;
+		float B = 0.000'000'015;
+		auto C = 0b0000'1010'0011'1110;//that is int, it can't be bool
 
+		auto A1 = 1'000'000;
+		auto B1 = 0.000'000'015;
+		auto C1 = 0b0000'1010'0011'1110;
+		auto D1 = 0xABCD'1234;
+		auto E1 = 1'2'3'4'000'1;
+	}*/
+
+	return 0;
 }

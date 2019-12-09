@@ -91,6 +91,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <EnableModules>false</EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -152,13 +155,39 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="testClass.cpp" />
+    <ClCompile Include="testClassOverride.cpp" />
+    <ClCompile Include="testClassExplicit.cpp" />
+    <ClCompile Include="testClassMove.cpp" />
+    <ClCompile Include="testClassVirtual.cpp" />
+    <ClCompile Include="testConst.cpp" />
+    <ClCompile Include="testException.cpp" />
     <ClCompile Include="testLambda.cpp" />
+    <ClCompile Include="testLambda2.cpp" />
+    <ClCompile Include="testMutex.cpp" />
+    <ClCompile Include="testPointer.cpp" />
+    <ClCompile Include="testRef.cpp" />
+    <ClCompile Include="testSmartPtr_Unique.cpp" />
+    <ClCompile Include="testStatic1.cpp" />
+    <ClCompile Include="testStatic2.cpp" />
+    <ClCompile Include="testStatic3.cpp" />
     <ClCompile Include="testStruct.cpp" />
+    <ClCompile Include="testTemplate01Class.cpp" />
+    <ClCompile Include="testThread.cpp" />
+    <ClCompile Include="testType.cpp" />
+    <ClCompile Include="testSmartPtr_Shared.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="testClass.h" />
+    <ClInclude Include="testClassOverride.h" />
+    <ClInclude Include="testClassExplicit.h" />
+    <ClInclude Include="testClassMove.h" />
+    <ClInclude Include="testClassVirtual.h" />
+    <ClInclude Include="testConst.h" />
+    <ClInclude Include="testRef.h" />
+    <ClInclude Include="testSmartPtr_Unique.h" />
+    <ClInclude Include="testStatic.h" />
     <ClInclude Include="testStruct.h" />
+    <ClInclude Include="testTemplate01Class.h" />
+    <ClInclude Include="testSmartPtr_Shared.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
