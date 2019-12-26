@@ -1,3 +1,4 @@
+void UnitTest_StaticCheck();
 namespace Cloneable { void UnitTest(); }
 namespace Cloneable2 { void UnitTest(); }
 namespace Convert { void UnitTest(); }
@@ -7,6 +8,7 @@ namespace TL { void UnitTest(); }
 
 int main()
 {
+	UnitTest_StaticCheck();
 	Cloneable::UnitTest();
 	Cloneable2::UnitTest();
 	Convert::UnitTest();

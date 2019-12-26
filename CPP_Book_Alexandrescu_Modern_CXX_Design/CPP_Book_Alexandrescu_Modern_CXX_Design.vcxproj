@@ -125,15 +125,46 @@
   <ItemGroup>
     <ClCompile Include="Clonable.cpp" />
     <ClCompile Include="Clonable_2.cpp" />
-    <ClCompile Include="Convertion.cpp" />
+    <ClCompile Include="TypeList_GetScatterHierarchy_Test.cpp" />
+    <ClCompile Include="mConvertion_Test.cpp" />
     <ClCompile Include="Int2Type.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mSelect_Test.cpp" />
+    <ClCompile Include="mStaticCheck_Test.cpp" />
     <ClCompile Include="Type2Type.cpp" />
-    <ClCompile Include="TypeList.cpp" />
+    <ClCompile Include="TypeList_Append_Test.cpp" />
+    <ClCompile Include="TypeList_DerivedFrom_Test.cpp" />
+    <ClCompile Include="TypeList_DerivedToFront_Test.cpp" />
+    <ClCompile Include="TypeList_EraseAll_Test.cpp" />
+    <ClCompile Include="TypeList_Erase_Test.cpp" />
+    <ClCompile Include="TypeList_IndexOf_Test.cpp" />
+    <ClCompile Include="TypeList_Length_Test.cpp" />
+    <ClCompile Include="TypeList_MostDerived_Test.cpp" />
+    <ClCompile Include="TypeList_NoDuplicates_Test.cpp" />
+    <ClCompile Include="TypeList_ReplaceAll_Test.cpp" />
+    <ClCompile Include="TypeList_Replace_Test.cpp" />
+    <ClCompile Include="TypeList_Test.cpp" />
+    <ClCompile Include="TypeList_Index.h" />
+    <ClCompile Include="TypeList_Index_Test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="TypeList_GetScatterHierarchy.h" />
+    <ClInclude Include="mConvertion.h" />
+    <ClInclude Include="mSelect.h" />
+    <ClInclude Include="mStaticCheck.h" />
     <ClInclude Include="TypeList.h" />
+    <ClInclude Include="TypeList_Append.h" />
+    <ClInclude Include="TypeList_DerivedFrom.h" />
+    <ClInclude Include="TypeList_DerivedToFront.h" />
+    <ClInclude Include="TypeList_Erase.h" />
+    <ClInclude Include="TypeList_EraseAll.h" />
+    <ClInclude Include="TypeList_IndexOf.h" />
+    <ClInclude Include="TypeList_Length.h" />
     <ClInclude Include="TypeList_Lists.h" />
+    <ClInclude Include="TypeList_MostDerived.h" />
+    <ClInclude Include="TypeList_NoDuplicates.h" />
+    <ClInclude Include="TypeList_Replace.h" />
+    <ClInclude Include="TypeList_ReplaceAll.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
