@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{E99DD5E6-2908-4F5C-8522-9C17D62B2DF5}</ProjectGuid>
+    <ProjectGuid>{D5E40362-A5B5-4F58-88B6-549EAB823E2B}</ProjectGuid>
     <RootNamespace>CPPModernCXXDesignAlexandrescu</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -76,6 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>Loki;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -87,6 +88,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>Loki;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -100,6 +102,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>Loki;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -115,6 +118,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>Loki;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,48 +127,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Clonable.cpp" />
-    <ClCompile Include="Clonable_2.cpp" />
-    <ClCompile Include="TypeList_GetScatterHierarchy_Test.cpp" />
-    <ClCompile Include="mConversion_Test.cpp" />
-    <ClCompile Include="Int2Type.cpp" />
+    <ClCompile Include="GenScatterHierarchy_Test.cpp" />
+    <ClCompile Include="Loki\Singleton.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="mSelect_Test.cpp" />
-    <ClCompile Include="mStaticCheck_Test.cpp" />
-    <ClCompile Include="Type2Type.cpp" />
-    <ClCompile Include="TypeList_Append_Test.cpp" />
-    <ClCompile Include="TypeList_DerivedFrom_Test.cpp" />
-    <ClCompile Include="TypeList_DerivedToFront_Test.cpp" />
-    <ClCompile Include="TypeList_EraseAll_Test.cpp" />
-    <ClCompile Include="TypeList_Erase_Test.cpp" />
-    <ClCompile Include="TypeList_IndexOf_Test.cpp" />
-    <ClCompile Include="TypeList_Length_Test.cpp" />
-    <ClCompile Include="TypeList_MostDerived_Test.cpp" />
-    <ClCompile Include="TypeList_NoDuplicates_Test.cpp" />
-    <ClCompile Include="TypeList_ReplaceAll_Test.cpp" />
-    <ClCompile Include="TypeList_Replace_Test.cpp" />
-    <ClCompile Include="TypeList_Test.cpp" />
-    <ClCompile Include="TypeList_Index.h" />
-    <ClCompile Include="TypeList_Index_Test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TypeList_GetScatterHierarchy.h" />
-    <ClInclude Include="mConversion.h" />
-    <ClInclude Include="mSelect.h" />
-    <ClInclude Include="mStaticCheck.h" />
-    <ClInclude Include="TypeList.h" />
-    <ClInclude Include="TypeList_Append.h" />
-    <ClInclude Include="TypeList_DerivedFrom.h" />
-    <ClInclude Include="TypeList_DerivedToFront.h" />
-    <ClInclude Include="TypeList_Erase.h" />
-    <ClInclude Include="TypeList_EraseAll.h" />
-    <ClInclude Include="TypeList_IndexOf.h" />
-    <ClInclude Include="TypeList_Length.h" />
-    <ClInclude Include="TypeList_Lists.h" />
-    <ClInclude Include="TypeList_MostDerived.h" />
-    <ClInclude Include="TypeList_NoDuplicates.h" />
-    <ClInclude Include="TypeList_Replace.h" />
-    <ClInclude Include="TypeList_ReplaceAll.h" />
+    <ClInclude Include="Loki\AbstractFactory.h" />
+    <ClInclude Include="Loki\DataGenerators.h" />
+    <ClInclude Include="Loki\EmptyType.h" />
+    <ClInclude Include="Loki\Factory.h" />
+    <ClInclude Include="Loki\Functor.h" />
+    <ClInclude Include="Loki\HierarchyGenerators.h" />
+    <ClInclude Include="Loki\LokiTypeInfo.h" />
+    <ClInclude Include="Loki\MultiMethods.h" />
+    <ClInclude Include="Loki\NullType.h" />
+    <ClInclude Include="Loki\Singleton.h" />
+    <ClInclude Include="Loki\SmartPtr.h" />
+    <ClInclude Include="Loki\static_check.h" />
+    <ClInclude Include="Loki\Threads.h" />
+    <ClInclude Include="Loki\Tuple.h" />
+    <ClInclude Include="Loki\Typelist.h" />
+    <ClInclude Include="Loki\TypeManip.h" />
+    <ClInclude Include="Loki\TypeTraits.h" />
+    <ClInclude Include="Loki\Visitor.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Loki\readme.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

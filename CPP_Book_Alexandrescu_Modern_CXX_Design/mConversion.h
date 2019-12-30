@@ -4,7 +4,7 @@ namespace Convert
 {
 
 template <class T, class U>
-class tConvertion
+class tConversion
 {
 	typedef char tSmall;
 	class tBig { char dummy[2]; };
@@ -18,7 +18,7 @@ public:
 };
 
 template <class T>
-class tConvertion<T, T>
+class tConversion<T, T>
 {
 public:
 	enum { exists = true };
@@ -27,5 +27,5 @@ public:
 
 }
 
-#define SUPERSUBCLASS(T, U) (Convert::tConvertion<const U*, const T*>::exists && !Convert::tConvertion<const T*, const void*>::sameType)
-#define SUPERSUBCLASS_STRICT(T, U) (SUPERSUBCLASS(T, U) && !Convert::tConvertion<const T, const U>::sameType)
+#define SUPERSUBCLASS(T, U) (Convert::tConversion<const U*, const T*>::exists && !Convert::tConversion<const T*, const void*>::sameType)
+#define SUPERSUBCLASS_STRICT(T, U) (SUPERSUBCLASS(T, U) && !Convert::tConversion<const T, const U>::sameType)

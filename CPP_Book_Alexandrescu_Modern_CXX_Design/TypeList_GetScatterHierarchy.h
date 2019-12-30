@@ -17,18 +17,31 @@ public:
 	typedef Typelist<T1, T2> TList;
 	typedef GenScatterHierarchy<T1, Unit> LeftBase;
 	typedef GenScatterHierarchy<T2, Unit> RightBase;
+
+	template <typename T> struct Rebind
+	{
+		typedef Unit<T> Result;
+	};
 };
 
 template <class AtomicType, template <class> class Unit>
 class GenScatterHierarchy : public Unit<AtomicType>
 {
 	typedef Unit<AtomicType> LeftBase;
+
+	template <typename T> struct Rebind
+	{
+		typedef Unit<T> Result;
+	};
 };
 
 template <template <class> class Unit>
 class GenScatterHierarchy<NullType, Unit>
 {
-
+	template <typename T> struct Rebind
+	{
+		typedef Unit<T> Result;
+	};
 };
 
 }

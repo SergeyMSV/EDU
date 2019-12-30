@@ -1,6 +1,6 @@
 #pragma once
 
-#include "mConvertion.h"
+#include "mConversion.h"
 #include "mSelect.h"
 #include "TypeList_Lists.h"
 
@@ -21,7 +21,7 @@ struct MostDerived<Typelist<Head, Tail>, T>
 private:
 	typedef typename MostDerived<Tail, T>::Result Candidate;
 public:
-	typedef typename Select<Convert::tConvertion<const volatile Head*, const volatile Candidate*>::exists && !Convert::tConvertion<const volatile Candidate*, const volatile void*>::sameType, Head, Candidate>::Result Result;
+	typedef typename Select<Convert::tConversion<const volatile Head*, const volatile Candidate*>::exists && !Convert::tConversion<const volatile Candidate*, const volatile void*>::sameType, Head, Candidate>::Result Result;
 	//typedef typename Select<SUPERSUBCLASS(Candidate, Head), Head, Candidate>::Result Result;
 };
 
