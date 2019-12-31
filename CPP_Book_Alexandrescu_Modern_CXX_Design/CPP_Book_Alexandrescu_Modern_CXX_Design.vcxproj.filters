@@ -14,12 +14,6 @@
     <ClCompile Include="Clonable_2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Int2Type.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Type2Type.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TypeList_Index.h">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -74,6 +68,12 @@
     <ClCompile Include="mConversion_Test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Type2Type_Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Int2Type_Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TypeList.h">
@@ -125,6 +125,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="mConversion.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Type2Type.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Int2Type.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

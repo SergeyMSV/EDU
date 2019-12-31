@@ -127,11 +127,11 @@
     <ClCompile Include="Clonable_2.cpp" />
     <ClCompile Include="TypeList_GetScatterHierarchy_Test.cpp" />
     <ClCompile Include="mConversion_Test.cpp" />
-    <ClCompile Include="Int2Type.cpp" />
+    <ClCompile Include="Int2Type_Test.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mSelect_Test.cpp" />
     <ClCompile Include="mStaticCheck_Test.cpp" />
-    <ClCompile Include="Type2Type.cpp" />
+    <ClCompile Include="Type2Type_Test.cpp" />
     <ClCompile Include="TypeList_Append_Test.cpp" />
     <ClCompile Include="TypeList_DerivedFrom_Test.cpp" />
     <ClCompile Include="TypeList_DerivedToFront_Test.cpp" />
@@ -148,6 +148,8 @@
     <ClCompile Include="TypeList_Index_Test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Int2Type.h" />
+    <ClInclude Include="Type2Type.h" />
     <ClInclude Include="TypeList_GetScatterHierarchy.h" />
     <ClInclude Include="mConversion.h" />
     <ClInclude Include="mSelect.h" />
