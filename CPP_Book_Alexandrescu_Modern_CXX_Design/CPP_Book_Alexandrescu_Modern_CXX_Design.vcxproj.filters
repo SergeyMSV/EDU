@@ -74,6 +74,9 @@
     <ClCompile Include="Int2Type_Test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TypeList_GetLinearHierarchy_Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TypeList.h">
@@ -131,6 +134,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Int2Type.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeList_GetLinearHierarchy.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmptyType.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

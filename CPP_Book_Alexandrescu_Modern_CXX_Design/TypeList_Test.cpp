@@ -14,6 +14,7 @@ void UnitTest_TypeList_DerivedToFront();
 void UnitTest_TypeList_MostDerived();
 void UnitTest_TypeList_NoDuplicates();
 
+void UnitTest_TypeList_GetLinearHierarchy();
 void UnitTest_TypeList_GetScatterHierarchy();
 
 void UnitTest()
@@ -31,6 +32,7 @@ void UnitTest()
 	UnitTest_TypeList_MostDerived();
 	UnitTest_TypeList_NoDuplicates();
 
+	UnitTest_TypeList_GetLinearHierarchy();
 	UnitTest_TypeList_GetScatterHierarchy();
 }
 
