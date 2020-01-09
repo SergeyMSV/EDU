@@ -1,24 +1,17 @@
+#include "Int2Type.h"
+
 #include <iostream>
 
-namespace Int2Type
-{
-
-template <int v>
-struct tInt2Type
-{
-	enum { value = v };
-};
-
-typedef tInt2Type<15> tInt15;
+typedef Int2Type<15> tInt15;
 
 template <bool v>
-struct tBool2Type
+struct Bool2Type
 {
 	enum { value = v };
 };
 
-typedef tBool2Type<true> tBoolTrue;
-typedef tBool2Type<false> tBoolFalse;
+typedef Bool2Type<true> tBoolTrue;
+typedef Bool2Type<false> tBoolFalse;
 
 void DoSmth(tBoolTrue, int value)
 {
@@ -30,7 +23,7 @@ void DoSmth(tBoolFalse, int value)
 	std::cout << "DoSmth(tBoolFalse, int value)\n";
 }
 
-void UnitTest()
+void UnitTest_Int2Type()
 {
 	{
 		tInt15 A;
@@ -42,6 +35,4 @@ void UnitTest()
 
 		std::cout << A.value << "\n";
 	}
-}
-
 }
