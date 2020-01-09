@@ -7,6 +7,11 @@ void DoSomething()
 	std::cout << "DoSomething ()\n";
 }
 
+void DoSomething1(int)
+{
+	std::cout << "DoSomething 1 ()\n";
+}
+
 namespace TL
 {
 
@@ -44,18 +49,30 @@ void UnitTest_Functor()
 			{
 				std::cout << "tDevice ()\n";
 			}
+
+			void operator()(int)
+			{
+				std::cout << "tDevice 2 ()\n";
+			}
 		}LA;
 
 		Functor<tDevice*> A(&LA);
 
 		(*A.Get())();
-
+		(*A.Get())(24);
+	
 
 		void(*PFunc)() = &DoSomething;
 
-		Functor<decltype(PFunc)> B(PFunc);
+		Functor<void(*)()> B(PFunc);
 
 		(*B.Get())();
+
+		void(*PFunc2)(int) = &DoSomething1;
+
+		Functor<void(*)(int)> C(PFunc2);
+
+		(*C.Get())(24);
 	}
 
 	TL::UnitTest_Functor2();
