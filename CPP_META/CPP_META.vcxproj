@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="class.cpp" />
     <ClCompile Include="difference_type.cpp" />
     <ClCompile Include="has_foo.cpp" />
     <ClCompile Include="main.cpp" />
