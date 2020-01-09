@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="Clonable.cpp" />
     <ClCompile Include="Clonable_2.cpp" />
+    <ClCompile Include="Functor_Test.cpp" />
     <ClCompile Include="TypeList_GetLinearHierarchy_Test.cpp" />
     <ClCompile Include="TypeList_GetScatterHierarchy_Test.cpp" />
     <ClCompile Include="mConversion_Test.cpp" />
@@ -151,6 +152,7 @@
   <ItemGroup>
     <ClInclude Include="EmptyType.h" />
     <ClInclude Include="Int2Type.h" />
+    <ClInclude Include="Functor.h" />
     <ClInclude Include="Type2Type.h" />
     <ClInclude Include="TypeList_GetLinearHierarchy.h" />
     <ClInclude Include="TypeList_GetScatterHierarchy.h" />

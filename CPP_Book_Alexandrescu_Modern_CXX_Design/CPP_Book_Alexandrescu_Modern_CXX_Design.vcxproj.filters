@@ -77,6 +77,9 @@
     <ClCompile Include="TypeList_GetLinearHierarchy_Test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Functor_Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TypeList.h">
@@ -140,6 +143,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="EmptyType.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Functor.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
