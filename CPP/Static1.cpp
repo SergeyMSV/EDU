@@ -1,4 +1,4 @@
-#include "testStatic.h"
+#include "Static.h"
 
 #include <iostream>
 

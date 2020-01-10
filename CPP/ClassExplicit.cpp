@@ -1,14 +1,35 @@
-#include "testClassExplicit.h"
-
 #include <iostream>
 
-namespace test
+namespace class_explicit
 {
 
-using namespace class_explicit;
+class tClass
+{
+	int A;
+
+public:
+	tClass()
+	{
+		A = 0;
+	}
+
+	explicit tClass(int a)
+	{
+		A = a;
+	}
+
+	tClass(const tClass& value)
+	{
+
+	}
+};
+
+}
 
 void UnitTest_ClassExplicit()
 {
+	using namespace class_explicit;
+
 	std::cout << "UnitTest_ClassExplicit" << std::endl;
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////
@@ -24,4 +45,3 @@ void UnitTest_ClassExplicit()
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 }
 
-}

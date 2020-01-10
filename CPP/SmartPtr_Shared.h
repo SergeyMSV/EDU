@@ -1,5 +1,4 @@
-#ifndef TEST_SMART_PTR_SHARED
-#define TEST_SMART_PTR_SHARED
+#pragma once
 
 namespace smart_ptr
 {
@@ -80,5 +79,3 @@ tSharedPtr<T> Make_SharedPtr(TArgs&& ...args)
 }
 
 }
-
-#endif//TEST_SMART_PTR_SHARED

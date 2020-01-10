@@ -1,13 +1,7 @@
-#pragma once
-
 #include <iostream>
 
-#include <string>
-
-namespace test
+namespace class_function_override
 {
-	namespace class_override
-	{
 
 class tClassBase
 {
@@ -68,8 +62,8 @@ public:
 		std::cout << "tClassBase::~tClassBase" << std::endl;
 	}
 
-//protected:
-	//virtual void DoSomething1() { }
+	//protected:
+		//virtual void DoSomething1() { }
 	virtual void DoSomething2()
 	{
 		std::cout << "tClassBase::DoSomething2" << std::endl;
@@ -83,7 +77,7 @@ class tClass2 : public tClassBase
 
 public:
 
-//protected:
+	//protected:
 	virtual void DoSomething1() { }
 	virtual void DoSomething2() override { }//It is to be in base class by all means
 	virtual void DoSomething3() override final { }
@@ -95,7 +89,7 @@ class tClass3 : public tClass2
 
 public:
 
-//protected:
+	//protected:
 	virtual void DoSomething1() { }
 	virtual void DoSomething2() override { }//It is to be in base class by all means
 	//virtual void DoSomething3() { }//That's final in base class
@@ -104,7 +98,7 @@ public:
 class tClass4 : public tClassBase
 {
 public:
-	tClass4(const std::string& str):tClassBase(str) { }// = default;
+	tClass4(const std::string& str) :tClassBase(str) { }// = default;
 
 //protected:
 	void DoSomething1()
@@ -118,5 +112,48 @@ public:
 	//void DoSomething3() { }//That's final in base class
 };
 
+}
+
+void UnitTest_ClassFunctionOverride()
+{
+	using namespace class_function_override;
+
+	std::cout << "UnitTest_ClassOverride" << std::endl;
+
+	{
+		//	tClass Class0;
+
+		tClassBase Class1{ };//if tClass() = default; it initialized with 0 (for some unknown reason), otherwise through tClass(std::initializer_list<int> list)
+		tClassBase Class2{ 4 };
+		tClassBase Class3{ 4, 5 };
+		tClassBase Class4{ 4, 5, 6 };
+
+		tClassBase Class5(7, 8);
+
+		tClassBase Class6(9, 0, "qwe");
+
+		tClassBase Class7{ 1, 2, "ASD" };
+
+		tClassBase Class8{ "dfgh" };
+
+		//tClass Class9 = Class8;//tClass(tClass&) = delete;
+	}
+
+	{
+		tClass4 Class{"fasadf"};
+
+		Class.DoSomething2();
+
+		tClassBase* ClassBasePtr = &Class;
+
+		ClassBasePtr->DoSomething2();
+	}
+
+	{
+		tClassBase* ClassBasePtr = new tClass4("fasadf");
+
+		ClassBasePtr->DoSomething2();
+
+		delete ClassBasePtr;
 	}
 }

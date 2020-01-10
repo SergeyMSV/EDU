@@ -2,9 +2,6 @@
 #include <iostream>
 #include <vector>
 
-namespace test
-{
-
 void UnitTest_Lambda()
 {
 	std::cout << "UnitTest_Lambda" << std::endl;
@@ -113,6 +110,4 @@ void UnitTest_Lambda()
 
 		std::cout << "Lambda " << Xx << std::endl;
 	}
-}
-
 }

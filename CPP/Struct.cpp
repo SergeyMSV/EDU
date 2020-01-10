@@ -1,4 +1,4 @@
-#include "testStruct.h"
+#include "Struct.h"
 
 #include <iostream>
 

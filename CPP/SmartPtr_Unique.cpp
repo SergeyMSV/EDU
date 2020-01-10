@@ -1,4 +1,4 @@
-#include "testSmartPtr_Unique.h"
+#include "SmartPtr_Unique.h"
 
 #include <iostream>
 

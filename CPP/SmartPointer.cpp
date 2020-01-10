@@ -2,12 +2,9 @@
 
 #include <memory>
 
-namespace test
+void UnitTest_SmartPointer()
 {
-
-void UnitTest_Pointer()
-{
-	std::cout << "UnitTest_Pointer" << std::endl;
+	std::cout << "UnitTest_SmartPointer" << std::endl;
 
 	{
 		size_t Size = 10;
@@ -73,6 +70,4 @@ void UnitTest_Pointer()
 
 		std::cout << *Ptr_1 << " " << *Ptr_2 << std::endl;
 	}
-}
-
 }
