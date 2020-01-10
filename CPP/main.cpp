@@ -53,9 +53,8 @@ int main()
 	UnitTest_Static1();
 	UnitTest_Static2();
 	UnitTest_Static3();
-	UnitTest_Struct();*/
-	UnitTest_Template01Class();
-	/*UnitTest_Thread();
+	UnitTest_Struct();
+	UnitTest_Thread();
 	UnitTest_Type();
 
     std::cout << "Hello World!\n";
