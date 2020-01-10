@@ -1,5 +1,4 @@
-#ifndef TEST_SMART_PTR_UNIQUE
-#define TEST_SMART_PTR_UNIQUE
+#pragma once
 
 namespace smart_ptr
 {
@@ -71,5 +70,3 @@ tUniquePtr<T> Make_UniquePtr(TArgs&& ...args)
 }
 
 }
-
-#endif//TEST_SMART_PTR_UNIQUE

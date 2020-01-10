@@ -1,4 +1,4 @@
-#include "testSmartPtr_Shared.h"
+#include "SmartPtr_Shared.h"
 
 #include <iostream>
 

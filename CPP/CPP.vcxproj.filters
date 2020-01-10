@@ -12,99 +12,87 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="testStruct.cpp">
+    <ClCompile Include="ClassExplicit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testLambda.cpp">
+    <ClCompile Include="ClassMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testType.cpp">
+    <ClCompile Include="Const.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testPointer.cpp">
+    <ClCompile Include="Exception.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testThread.cpp">
+    <ClCompile Include="Lambda.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testMutex.cpp">
+    <ClCompile Include="Lambda2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testException.cpp">
+    <ClCompile Include="Mutex.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testLambda2.cpp">
+    <ClCompile Include="Ref.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testConst.cpp">
+    <ClCompile Include="SmartPtr_Shared.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testStatic1.cpp">
+    <ClCompile Include="SmartPtr_Unique.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testStatic2.cpp">
+    <ClCompile Include="Static1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testStatic3.cpp">
+    <ClCompile Include="Static2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testRef.cpp">
+    <ClCompile Include="Static3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testTemplate01Class.cpp">
+    <ClCompile Include="Struct.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testClassMove.cpp">
+    <ClCompile Include="Thread.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testClassOverride.cpp">
+    <ClCompile Include="Type.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testClassExplicit.cpp">
+    <ClCompile Include="ClassFunctionPointer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testSmartPtr_Shared.cpp">
+    <ClCompile Include="ClassFunctionVirtual.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testSmartPtr_Unique.cpp">
+    <ClCompile Include="ClassFunctionOverride.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testClassVirtual.cpp">
+    <ClCompile Include="SmartPointer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FunctionPointer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="testStruct.h">
+    <ClInclude Include="Const.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="testConst.h">
+    <ClInclude Include="Ref.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="testStatic.h">
+    <ClInclude Include="SmartPtr_Shared.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="testRef.h">
+    <ClInclude Include="SmartPtr_Unique.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="testTemplate01Class.h">
+    <ClInclude Include="Static.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="testClassMove.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="testClassOverride.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="testClassExplicit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="testSmartPtr_Shared.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="testSmartPtr_Unique.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="testClassVirtual.h">
+    <ClInclude Include="Struct.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

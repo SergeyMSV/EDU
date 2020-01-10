@@ -3,9 +3,6 @@
 #include <iostream>
 #include <vector>
 
-namespace test
-{
-
 void UnitTest_Lambda2_Func(int a, std::string s, std::function<void (int)> f)
 {
 	std::cout << s ;
@@ -29,6 +26,4 @@ void UnitTest_Lambda2()
 
 		UnitTest_Lambda2_Func(3, "example Z", Z);
 	}
-}
-
 }
