@@ -2,21 +2,72 @@
 //#include <istream>
 //#include <ostream>
 #include <string>
+#include <thread>
 #include <boost/asio.hpp>
 
 #include <utilsBase.h>
 
-//using boost::asio::ip::tcp;
+#include "Communication.h"
 
 int main(int argc, char* argv[])
 {
-	boost::asio::io_context IO;
+	//std::thread ThreadConsole([&]()
+	//	{
+	//		while (true)
+	//		{
+	//			std::string Cmd;
 
-	boost::asio::serial_port Port(IO);
+	//			std::cin >> Cmd;
 
-	// ... lalalala
+	//			if (Cmd == "s")//Cmd == "sockets")
+	//			{
+	//				BM.DisplayConnections();//Thread-safe
+	//			}
+	//			else if (Cmd == "exit")
+	//			{
+	//				IO_Context.stop();
 
-	if (!Port.is_open())
+	//				return;
+	//			}
+	//		}
+	//	});
+
+	try
+	{
+		//if (argc != 2)
+		//{
+		//	std::cerr << "Usage: async_udp_echo_server <port>\n";
+		//	return 1;
+		//}
+
+		boost::asio::io_context IO;
+
+		boost::asio::serial_port Port(IO);
+
+		tCommunication<> SerialPort(IO, "COM5");
+
+		std::thread Thread_1([&]()
+			{
+				IO.run();
+			});
+
+		std::thread Thread_2([&]()
+			{
+				IO.run();
+			});
+
+		IO.run();
+
+		//ThreadConsole.join();
+		Thread_1.join();
+		Thread_2.join();
+	}
+	catch (std::exception & e)
+	{
+		std::cerr << "Exception: " << e.what() << "\n";
+	}
+
+/*	if (!Port.is_open())
 	{
 		boost::system::error_code Cerr;
 
@@ -60,7 +111,7 @@ int main(int argc, char* argv[])
 
 			Port.close();
 		}
-	}
+	}*/
 
 	return 0;
 }
