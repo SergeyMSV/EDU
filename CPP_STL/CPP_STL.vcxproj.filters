@@ -19,5 +19,11 @@
     <ClCompile Include="bind.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ratio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="chrono.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

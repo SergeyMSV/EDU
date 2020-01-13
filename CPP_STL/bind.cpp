@@ -7,7 +7,7 @@ void f(int n1, int n2, int n3, const int& n4, int n5)
 	std::cout << n1 << ' ' << n2 << ' ' << n3 << ' ' << n4 << ' ' << n5 << '\n';
 }
 
-void UnitTest_Bind()
+int UnitTest_Bind()
 {
 	using namespace std::placeholders;  // for _1, _2, _3...
 
@@ -23,4 +23,6 @@ void UnitTest_Bind()
 
 
 	std::cout << "End\n";
+
+	return 0;
 }
