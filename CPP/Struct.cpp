@@ -1,9 +1,15 @@
-#include "Struct.h"
+#include <string>
 
 #include <iostream>
 
-namespace test
+struct tStruct
 {
+	int A;
+
+	std::string B;
+
+	double C;
+};
 
 void UnitTest_Struct()
 {
@@ -14,6 +20,4 @@ void UnitTest_Struct()
 	tStruct Struct2{ 5, "five", 3.4 };
 
 	std::cout << Struct.A << " " << Struct.B << std::endl;
-}
-
 }

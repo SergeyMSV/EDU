@@ -166,6 +166,7 @@
     <ClCompile Include="Lambda.cpp" />
     <ClCompile Include="Lambda2.cpp" />
     <ClCompile Include="Mutex.cpp" />
+    <ClCompile Include="Return to Caller and Destructor.cpp" />
     <ClCompile Include="SmartPointer.cpp" />
     <ClCompile Include="Ref.cpp" />
     <ClCompile Include="SmartPtr_Unique.cpp" />
@@ -179,10 +180,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Const.h" />
-    <ClInclude Include="Ref.h" />
     <ClInclude Include="SmartPtr_Unique.h" />
     <ClInclude Include="Static.h" />
-    <ClInclude Include="Struct.h" />
     <ClInclude Include="SmartPtr_Shared.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
