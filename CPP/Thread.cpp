@@ -3,9 +3,6 @@
 #include <chrono>
 #include <thread>
 
-namespace test
-{
-
 void ThreadFunc1()
 {
 	std::cout << "ThreadFunc1" << std::endl;
@@ -84,6 +81,4 @@ void UnitTest_Thread()
 		Thread_4.join();
 		Thread_5.join();//it's not needed because the thread is detached
 	}
-}
-
 }

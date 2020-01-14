@@ -4,9 +4,6 @@
 #include <vector>
 #include <utility>
 
-namespace test
-{
-
 template<typename T, typename E>
 auto Compose(T a, E b) -> decltype(a + b)
 {
@@ -155,6 +152,4 @@ void UnitTest_Type()
 			std::cout << "for each: " << i.first << " " << i.second << "\n";
 		}
 	}
-}
-
 }

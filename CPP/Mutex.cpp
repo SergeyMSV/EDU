@@ -4,9 +4,6 @@
 #include <mutex>
 #include <thread>
 
-namespace test
-{
-
 static std::mutex gMtx;//со static может быть использован только в этом файле
 //std::mutex gMtx; - может быть использована во всех файлах проекта, что мешает...
 
@@ -75,6 +72,4 @@ void UnitTest_Mutex()
 		Thread_1.join();
 		Thread_2.join();
 	}
-}
-
 }

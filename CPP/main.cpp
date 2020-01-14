@@ -7,17 +7,11 @@ namespace test
 
 void UnitTest_Const();
 void UnitTest_Exception();
-void UnitTest_Mutex();
-void UnitTest_Ref();
 void UnitTest_SmartPtr_Shared();
 void UnitTest_SmartPtr_Unique();
 void UnitTest_Static1();
 void UnitTest_Static2();
 void UnitTest_Static3();
-void UnitTest_Struct();
-void UnitTest_Template01Class();
-void UnitTest_Thread();
-void UnitTest_Type();
 
 }
 
@@ -29,7 +23,13 @@ void UnitTest_ClassMove();
 void UnitTest_FunctionPointer();
 void UnitTest_Lambda();
 void UnitTest_Lambda2();
+void UnitTest_Mutex();
+void UnitTest_Ref();
+void UnitTest_ReturnToCallerAndDestructor();
 void UnitTest_SmartPointer();
+void UnitTest_Struct();
+void UnitTest_Thread();
+void UnitTest_Type();
 
 int main()
 {
@@ -47,6 +47,7 @@ int main()
 	UnitTest_Lambda2();
 	UnitTest_Mutex();
 	UnitTest_Ref();
+	UnitTest_ReturnToCallerAndDestructor();
 	UnitTest_SmartPointer();
 	UnitTest_SmartPtr_Shared();
 	UnitTest_SmartPtr_Unique();
